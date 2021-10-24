@@ -1,0 +1,33 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap=64>
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">
+                    account_circle
+                </i>
+                Conta
+            </a>
+            <a mat-list-item routerLink="/crud">
+                <i class="material-icons">
+                    local_shipping
+                </i>
+                Frota
+            </a>
+            <a mat-list-item>
+                <i class="material-icons">
+                    local_gas_station
+                </i>
+                Abastecer
+            </a>
+            <a mat-list-item>
+                <i class="material-icons">
+                    tips_and_updates
+                </i>
+                Sobre
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,18 @@
+.footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    font-size:1.1em;
+    height:40px;
+    display:flex;
+    justify-content: flex-end;
+}
+.footer .material-icons {
+    color:rgb(197,37,45);
+}
+
+.footer > span > a{
+    font-weight: 300;
+    color : black;
+    text-decoration:none;
+}

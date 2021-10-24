@@ -1,0 +1,27 @@
+.container {
+    position:fixed;
+    top:64px;
+    left:0;
+}
+
+.sidenav {
+    background-color:rgb(197,37,45);
+    width:150px;
+    padding-left:5px;
+}
+
+.sidenav a {
+    color: white;
+    background-color: rgb(29,25,22);
+    margin-bottom:8px;
+}
+
+.nav-list i {
+    color:rgb(218,200,176);
+    padding-right:10px;
+}
+
+.content {
+    padding:16px;
+    background-color:white;
+}
