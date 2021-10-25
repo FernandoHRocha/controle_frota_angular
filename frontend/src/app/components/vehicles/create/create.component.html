@@ -5,16 +5,16 @@
     <mat-card-subtitle>
         <form>
             <mat-form-field>
-                <input matInput placeholder="Frota">
+                <input matInput placeholder="Frota" [(ngModel)]="vehicle.frota" name="frota">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Placa">
+                <input matInput placeholder="Placa" [(ngModel)]="vehicle.placa" name="placa">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Odômetro">
+                <input matInput placeholder="Odômetro" [(ngModel)]="vehicle.odometro" name="odometro">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Manutenção">
+                <input matInput placeholder="Manutenção" [(ngModel)]="vehicle.manutencao" name="manutencao">
             </mat-form-field>
         </form>
     </mat-card-subtitle>

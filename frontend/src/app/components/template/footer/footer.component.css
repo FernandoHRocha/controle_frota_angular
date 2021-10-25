@@ -1,8 +1,9 @@
 .footer {
+    background-color: rgb(29,25,22);
     position:fixed;
     bottom:0;
     left:0;
-    font-size:1.1em;
+    font-size:1em;
     height:40px;
     display:flex;
     justify-content: flex-end;
@@ -13,6 +14,10 @@
 
 .footer > span > a{
     font-weight: 300;
-    color : black;
+    color : white;
     text-decoration:none;
+}
+strong {
+    font-size: 1.2em;
+    font-weight: 500;
 }

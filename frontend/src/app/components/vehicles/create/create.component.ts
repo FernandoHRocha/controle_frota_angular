@@ -14,7 +14,8 @@ export class CreateComponent implements OnInit {
   vehicle: Vehicle = {
     frota: 4,
     placa:"ahh4578",
-    odometro: 0
+    odometro: 0,
+    manutencao: 0
   }
 
   constructor(private vehicleService : VehicleService,
