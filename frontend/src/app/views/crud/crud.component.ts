@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-crud',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud.component.css']
 })
 export class CrudComponent implements OnInit {
-
-  constructor() { }
-
+  
+  constructor(private router: Router) { }
+  
   ngOnInit(): void {
   }
+  
+    adicionarVeiculo(): void {
+      this.router.navigate(['/vehicle/create'])
+    }
+  
+    vehicles = [
+      {frota:1,placa:'abc1234'},
+      {frota:2,placa:'abc7834'},
+      {frota:3,placa:'adf1234'}
+    ];
 
 }

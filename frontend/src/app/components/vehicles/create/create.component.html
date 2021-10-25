@@ -1,8 +1,31 @@
-<mat-card>
+<mat-card class="container">
     <mat-card-title>
         Adicionar Veículo
     </mat-card-title>
     <mat-card-subtitle>
-        Preencha com as informações do veículo.
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="Frota">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Placa">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Odômetro">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Manutenção">
+            </mat-form-field>
+        </form>
     </mat-card-subtitle>
+    <mat-card-content>
+        Preencha com as informações do veículo. O número da frota é automático.
+        <br>
+        <button mat-raised-button (click)="cancel()">
+            Cancelar
+        </button>
+        <button mat-raised-button color="primary" (click)="getVehicle()">
+            Inserir
+        </button>
+    </mat-card-content>
 </mat-card>

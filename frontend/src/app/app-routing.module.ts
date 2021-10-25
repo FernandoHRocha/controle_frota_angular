@@ -10,12 +10,13 @@ const routes: Routes = [
     path:"",
     component:HomeComponent
   },{
-    path:"crud",
+    path:"frota",
     component:CrudComponent
   },{
-    path:"create",
+    path:"vehicle/create",
     component:CreateComponent
-}];
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,16 +1,19 @@
 {
-    "vehicle": [
-        {
-            "id": 1,
-            "license_plate": "abc1234"
-        },
-        {
-            "id": 2,
-            "license_plate": "abc4321"
-        },
-        {
-            "id": 3,
-            "license_plate": "cba4321"
-        }
-    ]
+  "vehicle": [
+    {
+      "id": 1,
+      "frota": "001",
+      "placa": "avc1231"
+    },
+    {
+      "id": 2,
+      "frota": "002",
+      "placa": "oke3431"
+    },
+    {
+      "id": 3,
+      "frota": "003",
+      "placa": "anw531"
+    }
+  ]
 }
