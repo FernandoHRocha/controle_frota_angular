@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
+import { Vehicle } from '@shared/index';
+import { VehicleService } from '@shared/vehicle.service';
+import { SnackbarService } from '@shared/snackbar.service';
+
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
@@ -8,19 +12,26 @@ import { Router } from '@angular/router'
 })
 export class CrudComponent implements OnInit {
   
-  constructor(private router: Router) { }
+  vehicles: Vehicle[];
+
+  constructor(
+    private router: Router,
+    private vehicleService: VehicleService,
+    private snackBar: SnackbarService) { }
   
   ngOnInit(): void {
+    this.vehicleService.getVehicles().subscribe(
+      data => {
+        this.vehicles = data
+      },
+      error => {
+        this.vehicles = []
+        this.snackBar.middleBottom('Aconteceu um erro ao se conectar ao servidor.')
+      }
+    )
   }
   
-    adicionarVeiculo(): void {
-      this.router.navigate(['/vehicle/create'])
-    }
-  
-    vehicles = [
-      {frota:1,placa:'abc1234'},
-      {frota:2,placa:'abc7834'},
-      {frota:3,placa:'adf1234'}
-    ];
-
+  adicionarVeiculo(): void {
+    this.router.navigate(['/vehicle/create'])
+  }
 }

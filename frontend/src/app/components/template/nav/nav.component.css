@@ -11,13 +11,13 @@
 }
 
 .sidenav a {
-    color: white;
-    background-color: rgb(29,25,22);
+    color: black;
+    background-color:rgb(218,200,176);
     margin-bottom:8px;
 }
 
 .nav-list i {
-    color:rgb(218,200,176);
+    color: rgb(29,25,22);
     padding-right:10px;
 }
 

@@ -21,6 +21,7 @@ import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { CrudComponent } from './views/crud/crud.component';
 import { CreateComponent } from './components/vehicles/create/create.component';
+import { ListComponent } from '@components/index';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CreateComponent } from './components/vehicles/create/create.component';
     NavComponent,
     HomeComponent,
     CrudComponent,
+    ListComponent,
     CreateComponent
   ],
   imports: [

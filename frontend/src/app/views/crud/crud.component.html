@@ -1,34 +1,9 @@
 <ul>
     <li *ngFor="let vehicle of vehicles">
-        <mat-card [id]="vehicle.placa" class="vehicle">
-            <mat-card-title>
-                Frota <span class="frota">{{vehicle.frota}}</span> - <span class="placa">{{vehicle.placa | uppercase}}</span>
-            </mat-card-title>
-            <mat-card-content>
-                <nav class="actions">
-                    <button mat-raised-button class="fuel">
-                        <i class="material-icons">
-                            local_gas_station
-                        </i>
-                        Abastecer
-                    </button>
-                    <button mat-raised-button class="maintenance">
-                        <i class="material-icons">
-                            verified
-                        </i>
-                        Manutenção
-                    </button>
-                    <button mat-raised-button class="delete">
-                        <i class="material-icons">
-                            delete
-                        </i>
-                        Deletar
-                    </button>
-                </nav>
-            </mat-card-content>
-        </mat-card>
+        <app-list [vehicle]="vehicle"></app-list>
     </li>
 </ul>
 <button class="adicionar" mat-raised-button color="primary" (click)="adicionarVeiculo()">
     Novo Veículo
+    <br>
 </button>

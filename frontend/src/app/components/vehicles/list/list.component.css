@@ -1,0 +1,27 @@
+.actions .excluir {
+    background-color:rgb(197,37,45);
+}
+.actions {
+    padding-top:5px;
+    display:flex;
+    justify-content: space-between;
+}
+.actions button {
+    min-width: 150px;
+    width:30%;
+    margin: 0 10px;
+    color:rgb(218,200,176);
+    align-items: center;
+    background-color:rgb(29,25,22)
+}
+
+.actions button:first-child, .actions button:last-child{
+    margin: 0;
+}
+mat-card{
+    background-color:white;
+    color:rgb(29,25,22);
+}
+mat-card-title {
+    font-weight: 300;
+}
