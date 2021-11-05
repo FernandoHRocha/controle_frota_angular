@@ -1,9 +1,13 @@
 <ul>
     <li *ngFor="let vehicle of vehicles">
-        <app-list [vehicle]="vehicle"></app-list>
+        <app-list
+        (abastecerFrota)="abastecerVeiculo($event)"
+        (manutencaoFrota)="manutencaoVeiculo($event)"
+        (excluirFrota)="excluirVeiculo($event)"
+        [vehicle]="vehicle"></app-list>
     </li>
 </ul>
-<button class="adicionar" mat-raised-button color="primary" (click)="adicionarVeiculo()">
+<button class="adicionar" mat-raised-button color="primary" (click)="rotaAdicionarVeiculo()">
     Novo Veículo
     <br>
 </button>

@@ -6,21 +6,23 @@
       "placa": "avc1231"
     },
     {
-      "id": 2,
-      "frota": "002",
-      "placa": "oke3431"
+      "frota": "203",
+      "placa": "qwe1212",
+      "odometro": "0",
+      "manutencao": "0",
+      "id": 3
     },
     {
-      "id": 3,
-      "frota": "003",
-      "placa": "anw531"
+      "frota": "457",
+      "placa": "lkj7894",
+      "id": 5
     },
     {
-      "frota": "555",
-      "placa": "sdf4567",
-      "odometro": "54000",
-      "manutencao": 0,
-      "id": 8
+      "frota": "753",
+      "placa": "hhg4575",
+      "odometro": "0",
+      "manutencao": "0",
+      "id": 6
     }
   ]
 }

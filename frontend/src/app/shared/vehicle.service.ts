@@ -20,12 +20,12 @@ export class VehicleService {
     let vehicles
     this.getVehicles().subscribe(
       response => {
-        vehicle.id = response.length
+        vehicle.id = response[response.length-1].id+1
     })
     return this.http.post<Vehicle>(this.BASE_URL+'vehicle',vehicle)
   }
 
-  deleteVehicle(vehicle: Vehicle): void{
-    this.http.delete<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id) 
+  deleteVehicle(vehicle: Vehicle): Observable<any>{
+    return this.http.delete<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id)
   }
 }

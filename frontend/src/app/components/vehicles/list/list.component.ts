@@ -8,11 +8,17 @@ import { Vehicle } from '@shared/index';
 })
 export class ListComponent implements OnInit {
 
+  @Output('abastecerFrota') abastecerVeiculo = new EventEmitter<Vehicle>()
+  @Output('manutencaoFrota') manutencaoVeiculo = new EventEmitter<Vehicle>()
+  @Output('excluirFrota') excluirVeiculo = new EventEmitter<Vehicle>()
+  
   gas: boolean = false;
   manutencao: boolean = false;
   excluir: boolean = false;
   card: boolean = false;
-  @Input()vehicle: Vehicle;
+  
+  @Input() vehicle: Vehicle;
+
 
   constructor() {}
   
@@ -25,15 +31,15 @@ export class ListComponent implements OnInit {
   setCard = (value: boolean) => {this.card = value}
 
   abastecerFrota(){
-    console.log("abastecer o frota ", this.vehicle.frota)
+    this.abastecerVeiculo.emit(this.vehicle)
   }
 
   manutencaoFrota(){
-    console.log("Manutenção para o frota ", this.vehicle.frota)
+    this.manutencaoVeiculo.emit(this.vehicle)
   }
 
   excluirFrota(){
-    console.log("Exclusão para o frota ", this.vehicle.frota)
+    this.excluirVeiculo.emit(this.vehicle)
   }
 
 }
