@@ -3,5 +3,4 @@ export interface Fuel {
     idVehicle?: number;
     volume?: number;
     odometro?: number;
-    date?: any;
 }

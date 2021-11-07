@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { Vehicle, VehicleService } from '@shared/index';
-import { ListComponent, CreateComponent } from '@components/index';
+import { Vehicle, VehicleService, Fuel } from '@shared/index';
 import { SnackbarService } from '@shared/snackbar.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class CrudComponent implements OnInit {
     private snackBar: SnackbarService) { }
   
   ngOnInit(): void {
-    console.log('atualizando')
     this.operacao = 'listar'
     this.vehicleService.getVehicles().subscribe(
       data => {
@@ -73,8 +71,16 @@ export class CrudComponent implements OnInit {
     this.ngOnInit()
   }
 
-  abastecerVeiculo(vehicle: Vehicle): void{
-    this.snack('Abastecer veículo')
+  abastecerVeiculo(fuel: Fuel): void{
+    this.vehicleService.toFuel(fuel).subscribe(
+      data => {
+        this.snack('Abastecimento Registrado')
+        this.ngOnInit()
+      },
+      error => {
+        this.snack('Erro ao comunicar com o servidor.')
+      }
+    )
   }
 
   manutencaoVeiculo(vehicle: Vehicle): void{

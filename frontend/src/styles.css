@@ -2,11 +2,12 @@ html, body {
     height: 100%;
     padding-top:64px;
     padding-left:150px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 body {
     margin: 0;
     background-color: white;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 .v-middle{
     vertical-align: middle;

@@ -4,17 +4,57 @@
       "frota": "789",
       "placa": "jkk8749",
       "manutencao": "",
-      "id": 2
+      "id": 2,
+      "odometro": 450
     },
     {
       "frota": "789",
       "placa": "jkl4444",
-      "id": 1
+      "id": 1,
+      "odometro": 200
     },
     {
       "frota": "123",
       "placa": "lkj9087",
       "id": 3
+    }
+  ],
+  "fuel": [
+    {
+      "odometro": 350,
+      "volume": 145,
+      "idVehicle": 2,
+      "id": 1
+    },
+    {
+      "odometro": 400,
+      "volume": 30,
+      "idVehicle": 2,
+      "id": 2
+    },
+    {
+      "odometro": 200,
+      "volume": 90,
+      "idVehicle": 1,
+      "id": 3
+    },
+    {
+      "odometro": 400,
+      "volume": 25,
+      "idVehicle": 2,
+      "id": 4
+    },
+    {
+      "odometro": 450,
+      "volume": 50,
+      "idVehicle": 2,
+      "id": 5
+    },
+    {
+      "odometro": 200,
+      "volume": 150,
+      "idVehicle": 1,
+      "id": 6
     }
   ]
 }
