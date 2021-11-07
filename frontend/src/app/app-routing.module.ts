@@ -12,9 +12,6 @@ const routes: Routes = [
   },{
     path:"frota",
     component:CrudComponent
-  },{
-    path:"frota/create",
-    component:CreateComponent
   }
 ];
 

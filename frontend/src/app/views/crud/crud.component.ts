@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { Vehicle } from '@shared/index';
-import { VehicleService } from '@shared/vehicle.service';
+import { Vehicle, VehicleService } from '@shared/index';
+import { ListComponent, CreateComponent } from '@components/index';
 import { SnackbarService } from '@shared/snackbar.service';
 
 @Component({
@@ -13,13 +13,16 @@ import { SnackbarService } from '@shared/snackbar.service';
 export class CrudComponent implements OnInit {
   
   vehicles: Vehicle[];
+  operacao: string = "listar";
 
   constructor(
-    private router: Router,
+    public router: Router,
     private vehicleService: VehicleService,
     private snackBar: SnackbarService) { }
   
   ngOnInit(): void {
+    console.log('atualizando')
+    this.operacao = 'listar'
     this.vehicleService.getVehicles().subscribe(
       data => {
         this.vehicles = data
@@ -36,21 +39,26 @@ export class CrudComponent implements OnInit {
   }
   
   rotaAdicionarVeiculo(): void {
-    this.router.navigate(['/frota/create'])
+    this.operacao = 'criar';
   }
 
   adicionarVeiculo(vehicle: Vehicle): void{
     this.vehicleService.getVehicles().subscribe(
       data => {
         this.vehicles = data
-        vehicle.id = this.vehicles.length
-        let msg = "Frota " + vehicle.frota + " adicionado com sucesso."
-        this.snack(msg)
+        this.vehicleService.insertVehicle(vehicle).subscribe(
+          data => {
+            this.snack("Frota " + vehicle.frota + " adicionado com sucesso.")
+            this.ngOnInit()
+          },
+          error => {
+            this.snack("Não foi possível adicionar uma nova Frota.")
+          }
+        )
       },
       error => {
-        this.snack('Não foi possível adicionar.')
+        this.snack('Sem comunicação com o servidor.')
     })
-    this.router.navigate(['/frota'])
   }
 
   excluirVeiculo(vehicle: Vehicle): void{
@@ -66,10 +74,10 @@ export class CrudComponent implements OnInit {
   }
 
   abastecerVeiculo(vehicle: Vehicle): void{
-
+    this.snack('Abastecer veículo')
   }
 
   manutencaoVeiculo(vehicle: Vehicle): void{
-
+    this.snack('Manutenção veículo')
   }
 }

@@ -3,7 +3,8 @@
         <mat-nav-list class="nav-list">
             <a
             mat-list-item routerLink="/"
-            [class.mat-elevation-z5]="this.router.url==='/'">
+            [class.mat-elevation-z5]="this.router.url==='/'"
+            >
                 <i class="material-icons">
                     account_circle
                 </i>
@@ -21,14 +22,15 @@
             <a
             mat-list-item
             [class.mat-elevation-z4]="this.router.url==='/abastecer'"
-            >
+            routerLink="/abastecer">
                 <i class="material-icons">
                     local_gas_station
                 </i>
                 Abastecer
             </a>
             <a mat-list-item
-            [class.mat-elevation-z4]="this.router.url==='/sobre'">
+            [class.mat-elevation-z4]="this.router.url==='/sobre'"
+            routerLink="/sobre">
                 <i class="material-icons">
                     tips_and_updates
                 </i>

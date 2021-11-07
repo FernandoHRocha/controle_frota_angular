@@ -14,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion'
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -22,6 +23,8 @@ import { HomeComponent } from './views/home/home.component';
 import { CrudComponent } from './views/crud/crud.component';
 import { CreateComponent } from './components/vehicles/create/create.component';
 import { ListComponent } from '@components/index';
+import { MaintenanceComponent } from './components/vehicles/maintenance/maintenance.component';
+import { FuelComponent } from './components/vehicles/fuel/fuel.component';
 
 
 @NgModule({
@@ -33,13 +36,16 @@ import { ListComponent } from '@components/index';
     HomeComponent,
     CrudComponent,
     ListComponent,
-    CreateComponent
+    CreateComponent,
+    MaintenanceComponent,
+    FuelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatExpansionModule,
     MatSidenavModule,
     MatCardModule,
     HttpClientModule,

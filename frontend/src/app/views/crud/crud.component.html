@@ -1,13 +1,23 @@
-<ul>
-    <li *ngFor="let vehicle of vehicles">
-        <app-list
-        (abastecerFrota)="abastecerVeiculo($event)"
-        (manutencaoFrota)="manutencaoVeiculo($event)"
-        (excluirFrota)="excluirVeiculo($event)"
-        [vehicle]="vehicle"></app-list>
-    </li>
-</ul>
-<button class="adicionar" mat-raised-button color="primary" (click)="rotaAdicionarVeiculo()">
-    Novo Veículo
-    <br>
-</button>
+<div class="list" *ngIf="operacao === 'listar'">
+    <ul>
+        <li *ngFor="let vehicle of vehicles">
+            <app-list
+            (abastecerFrota)="abastecerVeiculo($event)"
+            (manutencaoFrota)="manutencaoVeiculo($event)"
+            (excluirFrota)="excluirVeiculo($event)"
+            [vehicle]="vehicle"></app-list>
+        </li>
+    </ul>
+    <button
+    class="adicionar"
+    mat-raised-button
+    color="primary"
+    (click)="operacao='criar'">
+        Novo Veículo
+    </button>
+</div>
+
+<app-create
+*ngIf="operacao === 'criar'"
+(inserirVeiculo)="adicionarVeiculo($event)"
+></app-create>

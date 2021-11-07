@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   manutencao: boolean = false;
   excluir: boolean = false;
   card: boolean = false;
+  panelOpenState = false;
   
   @Input() vehicle: Vehicle;
 

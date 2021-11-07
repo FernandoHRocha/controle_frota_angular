@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Vehicle } from '@shared/index';
-import { SnackbarService } from '@shared/snackbar.service';
 
 @Component({
   selector: 'app-create',
@@ -11,12 +10,11 @@ import { SnackbarService } from '@shared/snackbar.service';
 })
 export class CreateComponent implements OnInit {
 
-  @Output() inserirVeiculo: EventEmitter<Vehicle>;
+  @Output() inserirVeiculo = new EventEmitter<Vehicle>()
   vehicles: Vehicle[];
   vehicle: Vehicle = {};
 
-  constructor(private snackBar : SnackbarService,
-    private router: Router) {}
+  constructor(private router: Router) {}
     
   ngOnInit(): void {
   }

@@ -1,2 +1,5 @@
 export * from './vehicle.model'
 export * from './vehicle.service'
+export * from './fuel.model'
+export * from './maintenance.model'
+export * from './snackbar.service'
