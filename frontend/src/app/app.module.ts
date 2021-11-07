@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatDatepickerModule } from '@angular/material/datepicker'
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -44,6 +45,7 @@ import { FuelComponent } from './components/vehicles/fuel/fuel.component';
   imports: [
     BrowserModule,
     MatDatepickerModule,
+    ScrollingModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

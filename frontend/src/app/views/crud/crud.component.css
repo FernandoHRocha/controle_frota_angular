@@ -3,6 +3,12 @@ ul {
     padding:0;
 }
 li {
-    padding: 10px 0;
+    padding: 10px;
     list-style-type: none;
 }
+
+.example-viewport {
+    height: calc(90vh - 120px);
+    width: 82vw;
+    margin:20px;
+  }

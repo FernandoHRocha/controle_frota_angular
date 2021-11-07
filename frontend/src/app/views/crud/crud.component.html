@@ -1,12 +1,14 @@
 <div class="list" *ngIf="operacao === 'listar'">
     <ul>
-        <li *ngFor="let vehicle of vehicles">
-            <app-list
-            (abastecerFrota)="abastecerVeiculo($event)"
-            (manutencaoFrota)="manutencaoVeiculo($event)"
-            (excluirFrota)="excluirVeiculo($event)"
-            [vehicle]="vehicle"></app-list>
-        </li>
+        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+            <li *ngFor="let vehicle of vehicles">
+                <app-list
+                (abastecerFrota)="abastecerVeiculo($event)"
+                (manutencaoFrota)="manutencaoVeiculo($event)"
+                (excluirFrota)="excluirVeiculo($event)"
+                [vehicle]="vehicle"></app-list>
+            </li>
+        </cdk-virtual-scroll-viewport>
     </ul>
     <button
     class="adicionar"

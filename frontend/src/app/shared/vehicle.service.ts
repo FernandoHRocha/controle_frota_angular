@@ -72,7 +72,15 @@ export class VehicleService {
   }
 
 //MANUTENÇÃO
-  doMaintenance(vehicle: Vehicle, maintenance: Maintenance): Observable<any>{
-    return this.http.post<Maintenance>(this.BASE_URL+'maintenance',maintenance)
+  doMaintenance(maintenance: Maintenance): Observable<any>{
+    let vehicle: Vehicle;
+    this.getVehicle(maintenance.idVehicle).subscribe(
+      data => {
+        vehicle = data
+        vehicle.odometro = maintenance.odometro
+        this.updateVehicle(vehicle).subscribe()
+      }
+    )
+    return this.http.post<Maintenance>(this.BASE_URL+'maintenance/',maintenance)
   }
 }
