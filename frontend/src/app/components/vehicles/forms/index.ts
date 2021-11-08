@@ -1,0 +1,1 @@
+export * from './fuel-main-delete/fuel-main-delete.component'

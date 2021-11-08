@@ -5,23 +5,24 @@
       "placa": "jkk8749",
       "manutencao": "",
       "id": 2,
-      "odometro": 3501
+      "odometro": 7000
     },
     {
       "frota": "789",
       "placa": "jkl4444",
       "id": 1,
-      "odometro": 2000
+      "odometro": 4375
     },
     {
       "frota": "123",
       "placa": "lkj9087",
-      "id": 3
+      "id": 3,
+      "odometro": 1750
     },
     {
       "frota": "456",
       "placa": "wer7897",
-      "odometro": "154780",
+      "odometro": 155000,
       "manutencao": "0",
       "id": 4
     }
@@ -140,6 +141,102 @@
       "volume": 1,
       "idVehicle": 2,
       "id": 19
+    },
+    {
+      "odometro": 4200,
+      "volume": 456,
+      "idVehicle": 2,
+      "id": 20
+    },
+    {
+      "odometro": 3600,
+      "volume": 60,
+      "idVehicle": 2,
+      "id": 21
+    },
+    {
+      "odometro": 4000,
+      "volume": 250,
+      "idVehicle": 2,
+      "id": 22
+    },
+    {
+      "odometro": 5000,
+      "volume": 650,
+      "idVehicle": 2,
+      "id": 23
+    },
+    {
+      "odometro": 6000,
+      "volume": 475,
+      "idVehicle": 2,
+      "id": 24
+    },
+    {
+      "odometro": 2750,
+      "volume": 298,
+      "idVehicle": 1,
+      "id": 25
+    },
+    {
+      "odometro": 155000,
+      "volume": 600,
+      "idVehicle": 4,
+      "id": 26
+    },
+    {
+      "odometro": 3000,
+      "volume": 150,
+      "idVehicle": 1,
+      "id": 27
+    },
+    {
+      "odometro": 3500,
+      "volume": 420,
+      "idVehicle": 1,
+      "id": 28
+    },
+    {
+      "odometro": 4000,
+      "volume": 300,
+      "idVehicle": 1,
+      "id": 29
+    },
+    {
+      "odometro": 4375,
+      "volume": 125,
+      "idVehicle": 1,
+      "id": 30
+    },
+    {
+      "odometro": 6100,
+      "volume": 45,
+      "idVehicle": 2,
+      "id": 31
+    },
+    {
+      "odometro": 6500,
+      "volume": 150,
+      "idVehicle": 2,
+      "id": 32
+    },
+    {
+      "odometro": 1510,
+      "volume": 650,
+      "idVehicle": 3,
+      "id": 33
+    },
+    {
+      "odometro": 1750,
+      "volume": 170,
+      "idVehicle": 3,
+      "id": 34
+    },
+    {
+      "odometro": 7000,
+      "volume": 230,
+      "idVehicle": 2,
+      "id": 35
     }
   ]
 }

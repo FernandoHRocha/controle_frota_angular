@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, Injector, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BaseComponent } from '@shared/base.component';
 import { Vehicle, Fuel } from '@shared/index';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -10,10 +12,7 @@ import { Vehicle, Fuel } from '@shared/index';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent extends BaseComponent {
-  
-  @Output('manutencaoFrota') manutencaoVeiculo = new EventEmitter<Vehicle>()
-  @Output('excluirFrota') excluirVeiculo = new EventEmitter<Vehicle>()
-  
+
   hodometro: number = 0;
   volume: number;
   estadoAbastecer: boolean = false;
@@ -21,36 +20,34 @@ export class ListComponent extends BaseComponent {
   estadoExcluir: boolean = false;
   card: boolean = false;
 
-  @Input() vehicle: Vehicle;
+  vehicles: Vehicle[];
 
   form: FormGroup;
   hodometroFormControl = new FormControl('',[Validators.required])
   fuelFormControl = new FormControl('',[Validators.required,Validators.min(0)])
 
-  constructor(@Inject(Injector) injector: Injector) {
+  constructor(@Inject(Injector) injector: Injector, private router: Router) {
     super(injector);
   }
   
   ngOnInit(): void {
-    this.hodometro = this.vehicle.odometro
-    this.hodometroFormControl.setValidators(Validators.min(this.vehicle.odometro))
+    this.getVehicleService().getVehicles().subscribe(
+      data => {
+        this.vehicles = data
+      },
+      error => {
+        this.getSnackService().popupBottom('Erro ao carregar a frota.')
+      }
+    )
   }
 
-  abastecerFrota(){
-    let fuel: Fuel = {
-      odometro : this.hodometro,
-      volume : this.volume,
-      idVehicle : this.vehicle.id
-    };
-    this.vehicleServicesToFuel(fuel)
+  abastecerFrota(fuel: Fuel){
+    if (this.vehicleServicesToFuel(fuel)) {
+      this.getSnackService().popupBottom('Frota abastecido!')
+      this.vehicles=[]
+      this.ngOnInit()
+    } else {
+      this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
+    }
   }
-
-  manutencaoFrota(){
-    this.manutencaoVeiculo.emit(this.vehicle)
-  }
-
-  excluirFrota(){
-    this.excluirVeiculo.emit(this.vehicle)
-  }
-
 }

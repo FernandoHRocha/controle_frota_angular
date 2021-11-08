@@ -21,13 +21,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { HomeComponent } from './views/home/home.component';
-import { CrudComponent } from './views/crud/crud.component';
-import { CreateComponent } from './components/vehicles/create/create.component';
-import { ListComponent } from '@components/index';
-import { MaintenanceComponent } from './components/vehicles/maintenance/maintenance.component';
-import { FuelComponent } from './components/vehicles/fuel/fuel.component';
-
+import { HomeComponent, CrudComponent } from './views/index';
+import { CreateComponent, ListComponent, MaintenanceComponent, FuelComponent } from './components/vehicles/index';
+import { FuelMainDeleteComponent } from '@components/index';
 
 @NgModule({
   declarations: [
@@ -40,7 +36,8 @@ import { FuelComponent } from './components/vehicles/fuel/fuel.component';
     ListComponent,
     CreateComponent,
     MaintenanceComponent,
-    FuelComponent
+    FuelComponent,
+    FuelMainDeleteComponent
   ],
   imports: [
     BrowserModule,

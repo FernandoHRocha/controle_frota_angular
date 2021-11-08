@@ -1,55 +1,12 @@
-.card {
-    color: rgb(29,25,22);
-    background-color: rgb(218,200,176);
-
+.criar {
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    bottom: 30px;
+    height: 35px;
+    padding: 5px;
 }
-.actions .excluir {
-    background-color:rgb(29,25,22);
-    color:rgb(218,200,176);
-}
-.actions {
-    padding-top:5px;
-}
-button {
-    min-width: 150px;
-    width:30%;
-    margin: 20px;
-    color:rgb(218,200,176);
-    align-items: center;
-    background-color:rgb(29,25,22);
-}
-.botoesConfirmacao {
-    margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
-}
-.botoesConfirmacao button:first-child {
-    font-weight: bold;
-    color:white;
-    background-color: rgb(197,37,45);
-}
-.botoesConfirmacao button:last-child {
-    background-color: darkcyan;
-    font-weight: bold;
-    color:white;
-}
-#abastecimento {
-    display: flex;
-    justify-items: flex-start;
-    justify-content: space-between;
-}
-#abastecimento mat-form-field{
-    min-width: 180px;
-    width: 40%;
-}
-
-.actions button:first-child, .actions button:last-child{
-    margin: 0;
-}
-mat-card{
-    background-color:white;
-    color:rgb(29,25,22);
-}
-mat-card-title {
-    font-weight: 300;
+.listagem {
+    padding: 10px;
+    padding-bottom: 45px;
 }

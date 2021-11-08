@@ -1,12 +1,11 @@
 import { Inject, Injectable, Injector, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 
 import { VehicleService,  SnackbarService, Fuel, Maintenance, Vehicle } from "@shared/index";
+import { Observable, Subject } from "rxjs";
 
 @Injectable()
 export abstract class BaseComponent implements OnInit {
     
-    route: Router;
     constructor(@Inject(Injector) private injector: Injector) {
     }
 
@@ -21,15 +20,18 @@ export abstract class BaseComponent implements OnInit {
         return this.injector.get(SnackbarService)
     }
     
-    vehicleServicesToFuel(fuel: Fuel): void{
+    vehicleServicesToFuel(fuel: Fuel): Observable<boolean>{
+      let retorno = new Subject<boolean>();
         this.getVehicleService().toFuel(fuel).subscribe(
             data => {
-              this.getSnackService().popupBottom('Abastecimento Registrado')
-              this.route.navigate(['/'])
+              retorno.next(true);
+              retorno.complete()
             },
             error => {
-              this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
+              retorno.next(false);
+              retorno.complete()
             }
           )
+      return retorno.asObservable()
     }
 }
