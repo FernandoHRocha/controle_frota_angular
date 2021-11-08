@@ -1,7 +1,10 @@
+.home {
+    margin:10px;
+}
 .home .title {
-    font-size:3rem;
+    font-size:1.5rem;
     font-weight:300;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .home .subtitle {

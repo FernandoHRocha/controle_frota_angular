@@ -1,14 +1,24 @@
-ul {
-    margin:0;
-    padding:0;
+.list {
+    display: flex;
+    background-color:white;
 }
 li {
-    padding: 10px;
+    padding: 10px 0;
     list-style-type: none;
 }
-
-.example-viewport {
-    height: calc(90vh - 120px);
-    width: 82vw;
-    margin:20px;
-  }
+ul {
+    padding: 0;
+    padding-right:20px;
+}
+.lista-veiculos {
+    height: calc(100vh - 140px);
+    width: 100%;
+    margin:0 0 0 10px;
+}
+.footer {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    padding:5px;
+    bottom: 30px;
+}

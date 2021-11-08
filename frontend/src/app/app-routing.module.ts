@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component'
 import { CrudComponent } from './views/crud/crud.component'
-import { CreateComponent } from './components/vehicles/create/create.component'
 
 const routes: Routes = [
   {

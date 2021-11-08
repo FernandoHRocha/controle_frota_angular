@@ -33,7 +33,7 @@ export class CrudComponent implements OnInit {
   }
 
   snack(msg:string): void{
-    this.snackBar.middleBottom(msg)
+    this.snackBar.popupBottom(msg)
   }
   
   rotaAdicionarVeiculo(): void {
@@ -69,18 +69,6 @@ export class CrudComponent implements OnInit {
       }
     )
     this.ngOnInit()
-  }
-
-  abastecerVeiculo(fuel: Fuel): void{
-    this.vehicleService.toFuel(fuel).subscribe(
-      data => {
-        this.snack('Abastecimento Registrado')
-        this.ngOnInit()
-      },
-      error => {
-        this.snack('Erro ao comunicar com o servidor.')
-      }
-    )
   }
 
   manutencaoVeiculo(vehicle: Vehicle): void{

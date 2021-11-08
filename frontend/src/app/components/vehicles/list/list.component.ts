@@ -1,15 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Injector, Inject } from '@angular/core';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+
+import { BaseComponent } from '@shared/base.component';
 import { Vehicle, Fuel } from '@shared/index';
-import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent extends BaseComponent {
   
-  @Output('abastecerFrota') abastecerVeiculo = new EventEmitter<Vehicle>()
   @Output('manutencaoFrota') manutencaoVeiculo = new EventEmitter<Vehicle>()
   @Output('excluirFrota') excluirVeiculo = new EventEmitter<Vehicle>()
   
@@ -22,11 +23,13 @@ export class ListComponent implements OnInit {
 
   @Input() vehicle: Vehicle;
 
-  
+  form: FormGroup;
   hodometroFormControl = new FormControl('',[Validators.required])
   fuelFormControl = new FormControl('',[Validators.required,Validators.min(0)])
 
-  constructor() {}
+  constructor(@Inject(Injector) injector: Injector) {
+    super(injector);
+  }
   
   ngOnInit(): void {
     this.hodometro = this.vehicle.odometro
@@ -39,7 +42,7 @@ export class ListComponent implements OnInit {
       volume : this.volume,
       idVehicle : this.vehicle.id
     };
-    this.abastecerVeiculo.emit(fuel)
+    this.vehicleServicesToFuel(fuel)
   }
 
   manutencaoFrota(){

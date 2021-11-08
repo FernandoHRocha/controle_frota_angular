@@ -10,6 +10,7 @@ import { Vehicle } from '@shared/index';
 })
 export class CreateComponent implements OnInit {
 
+  @Output() cancelar = new EventEmitter<void>()
   @Output() inserirVeiculo = new EventEmitter<Vehicle>()
   vehicles: Vehicle[];
   vehicle: Vehicle = {};
@@ -24,7 +25,7 @@ export class CreateComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(["/frota"])
+    this.cancelar.emit()
   }
 
 }

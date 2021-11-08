@@ -10,7 +10,7 @@ export class SnackbarService {
 
   constructor(private snackBar: MatSnackBar) { }
 
-  middleBottom(msg:string,duration:number = 2000):void{
+  popupBottom(msg:string,duration:number = 2000):void{
     this.snackBar.open(msg,'x',{
       duration:duration,
       horizontalPosition:"center",

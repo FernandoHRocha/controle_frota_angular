@@ -1,5 +1,7 @@
 .card {
     color: rgb(29,25,22);
+    background-color: rgb(218,200,176);
+
 }
 .actions .excluir {
     background-color:rgb(29,25,22);
@@ -33,7 +35,12 @@ button {
 }
 #abastecimento {
     display: flex;
+    justify-items: flex-start;
     justify-content: space-between;
+}
+#abastecimento mat-form-field{
+    min-width: 180px;
+    width: 40%;
 }
 
 .actions button:first-child, .actions button:last-child{

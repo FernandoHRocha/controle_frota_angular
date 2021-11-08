@@ -4,7 +4,8 @@ class="card"
 (mouseover)="card = true"
 (mouseout)="card = false">
     <mat-card-title>
-        Frota <span class="frota">{{vehicle.frota}}</span> - <span class="placa">{{vehicle.placa | uppercase}}</span>
+        Frota: <span class="frota">{{vehicle.frota}}</span>
+        Placa: <span class="placa">{{vehicle.placa | uppercase}}</span>
     </mat-card-title>
     <mat-card-subtitle>
         Hodômetro {{vehicle.odometro ? vehicle.odometro : 0}} Km

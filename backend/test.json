@@ -5,18 +5,25 @@
       "placa": "jkk8749",
       "manutencao": "",
       "id": 2,
-      "odometro": 519
+      "odometro": 3501
     },
     {
       "frota": "789",
       "placa": "jkl4444",
       "id": 1,
-      "odometro": 200
+      "odometro": 2000
     },
     {
       "frota": "123",
       "placa": "lkj9087",
       "id": 3
+    },
+    {
+      "frota": "456",
+      "placa": "wer7897",
+      "odometro": "154780",
+      "manutencao": "0",
+      "id": 4
     }
   ],
   "fuel": [
@@ -61,6 +68,78 @@
       "volume": 46,
       "idVehicle": 2,
       "id": 7
+    },
+    {
+      "odometro": 650,
+      "volume": 60,
+      "idVehicle": 2,
+      "id": 8
+    },
+    {
+      "odometro": 725,
+      "volume": 45,
+      "idVehicle": 2,
+      "id": 9
+    },
+    {
+      "odometro": 1200,
+      "volume": 624,
+      "idVehicle": 1,
+      "id": 10
+    },
+    {
+      "odometro": 1450,
+      "volume": 200,
+      "idVehicle": 1,
+      "id": 11
+    },
+    {
+      "odometro": 1230,
+      "volume": 401,
+      "idVehicle": 2,
+      "id": 12
+    },
+    {
+      "odometro": 1500,
+      "volume": 127,
+      "idVehicle": 2,
+      "id": 13
+    },
+    {
+      "odometro": 2000,
+      "volume": 300,
+      "idVehicle": 1,
+      "id": 14
+    },
+    {
+      "odometro": 2000,
+      "volume": 200,
+      "idVehicle": 2,
+      "id": 15
+    },
+    {
+      "odometro": 2200,
+      "volume": 100,
+      "idVehicle": 2,
+      "id": 16
+    },
+    {
+      "odometro": 2500,
+      "volume": 200,
+      "idVehicle": 2,
+      "id": 17
+    },
+    {
+      "odometro": 3500,
+      "volume": 654,
+      "idVehicle": 2,
+      "id": 18
+    },
+    {
+      "odometro": 3501,
+      "volume": 1,
+      "idVehicle": 2,
+      "id": 19
     }
   ]
 }
