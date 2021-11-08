@@ -1,7 +1,7 @@
 .card {
     color: rgb(29,25,22);
     background-color: rgb(218,200,176);
-    margin: 10px 0;
+    margin-bottom:10px;
 }
 .actions .excluir {
     background-color:rgb(29,25,22);

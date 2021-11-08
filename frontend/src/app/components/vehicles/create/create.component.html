@@ -3,7 +3,10 @@
         Adicionar Veículo
     </mat-card-title>
     <mat-card-subtitle>
-        <form>
+        Preencha com as informações do novo veículo da frota.
+    </mat-card-subtitle>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <mat-card-content>
             <mat-form-field>
                 <input matInput placeholder="Frota" [(ngModel)]="vehicle.frota" name="frota">
             </mat-form-field>
@@ -16,16 +19,20 @@
             <mat-form-field>
                 <input matInput placeholder="Manutenção" [(ngModel)]="vehicle.manutencao" name="manutencao">
             </mat-form-field>
-        </form>
+            <h3>Qual o tipo do veículo?</h3>
+            <app-radio (chooseOption)=setOption($event) [options]="tiposVeiculo"></app-radio>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+            <button mat-raised-button (click)="cancel()">
+                Cancelar
+            </button>
+            <button type="submit" mat-raised-button color="primary" (click)="inserirFrota()">
+                Inserir
+            </button>
+        </mat-card-actions>
+    </form>
+    <mat-card-subtitle>
+        O novo veículo estará disponível para consulta na guia frota.
     </mat-card-subtitle>
-    <mat-card-content>
-        Preencha com as informações do veículo.
-        <br>
-        <button mat-raised-button (click)="cancel()">
-            Cancelar
-        </button>
-        <button mat-raised-button color="primary" (click)="inserirFrota()">
-            Inserir
-        </button>
-    </mat-card-content>
 </mat-card>

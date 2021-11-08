@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Vehicle } from '@shared/index';
+import { Vehicle, RadioOption } from '@shared/index';
 
 @Component({
   selector: 'app-create',
@@ -15,17 +15,35 @@ export class CreateComponent implements OnInit {
   vehicles: Vehicle[];
   vehicle: Vehicle = {};
 
+  tiposVeiculo: RadioOption[] = [
+    { label : 'moto', value: 'MOTO' },
+    { label : 'carro', value: 'CARRO' },
+    { label : 'caminhao', value: 'CAMINHAO' },
+  ]
+  escolharadio: string;
+  tipoVeiculo: string;
+
   constructor(private router: Router) {}
     
   ngOnInit(): void {
   }
       
   inserirFrota(): void {
-    this.inserirVeiculo.emit(this.vehicle)
+    console.log(this.escolharadio)
+    //this.inserirVeiculo.emit(this.vehicle)
   }
 
   cancel(): void {
     this.cancelar.emit()
+  }
+
+  onSubmit(form){
+    console.log('formulario')
+    console.log(form)
+  }
+
+  setOption($event){
+    this.escolharadio = $event
   }
 
 }

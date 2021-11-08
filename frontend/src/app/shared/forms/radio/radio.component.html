@@ -1,0 +1,5 @@
+<mat-radio-group class="radios" [(ngModel)]="choose" (change)="changeOption(choose)">
+    <mat-radio-button class="options" [value]="option.value" *ngFor="let option of options">
+        {{ option.label }}
+    </mat-radio-button>
+</mat-radio-group>

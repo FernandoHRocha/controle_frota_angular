@@ -26,7 +26,7 @@ export class VehicleService {
   }
 
   insertVehicle(vehicle : Vehicle): Observable<Vehicle> {
-    let vehicles
+    let vehicles: Vehicle;
     this.getVehicles().subscribe(
       response => {
         vehicle.id = response[response.length-1].id+1

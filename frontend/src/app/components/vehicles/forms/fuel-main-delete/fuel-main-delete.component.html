@@ -21,7 +21,11 @@ class="card"
                         {{estadoAbastecer ? 'Deseja registrar um abastecimento para este veículo?' : 'Registrar Abastecimento?'}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <form>
+                {{ form.valid }}
+                {{ form.value | json }}
+                <form
+                #form='ngForm'
+                novalidate>
                     <div id="abastecimento">
                         <mat-form-field>
                             <mat-label>Hodômetro</mat-label>
@@ -29,6 +33,7 @@ class="card"
                             matInput
                             type="number"
                             [(ngModel)]=hodometro
+                            ngModel
                             name="hodometro"
                             [formControl]="hodometroFormControl">
                             <mat-hint align="start"><strong>Kilometragem ao abastecer</strong></mat-hint>
@@ -44,7 +49,8 @@ class="card"
                             <input
                             matInput
                             type="number"
-                            name="odometro"
+                            ngModel
+                            name="volume"
                             [(ngModel)]=volume
                             [formControl]="fuelFormControl">
                             <mat-hint align="start"><strong>Volume de combustível</strong></mat-hint>

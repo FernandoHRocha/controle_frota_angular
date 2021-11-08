@@ -5,18 +5,23 @@
 }
 
 .sidenav {
-    background-color:rgb(197,37,45);
+    background-color:rgb(218,200,176);
     width:150px;
     padding-left:5px;
 }
 
 .sidenav a {
-    color: black;
-    background-color:rgb(218,200,176);
+    color: white;
+    background-color: rgb(29,25,22);
     margin-bottom:8px;
 }
 
 .nav-list i {
-    color: rgb(29,25,22);
+    color: rgb(218,200,176);
     padding-right:10px;
 }
+/*
+ rgb(197,37,45);
+ rgb(29,25,22);
+ rgb(218,200,176);
+ */

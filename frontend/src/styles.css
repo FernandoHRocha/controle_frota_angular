@@ -16,3 +16,6 @@ body {
 .v-middle{
     vertical-align: middle;
 }
+.instrucao {
+    margin: 10px;
+}

@@ -1,7 +1,7 @@
 .container {
     margin: 5px;
 }
-form {
+mat-card-content {
     display:flex;
     flex-direction:column;
 }

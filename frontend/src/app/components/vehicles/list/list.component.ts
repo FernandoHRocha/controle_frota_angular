@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, Injector, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 
 import { BaseComponent } from '@shared/base.component';
 import { Vehicle, Fuel } from '@shared/index';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -26,7 +24,7 @@ export class ListComponent extends BaseComponent {
   hodometroFormControl = new FormControl('',[Validators.required])
   fuelFormControl = new FormControl('',[Validators.required,Validators.min(0)])
 
-  constructor(@Inject(Injector) injector: Injector, private router: Router) {
+  constructor(@Inject(Injector) injector: Injector) {
     super(injector);
   }
   
@@ -41,13 +39,14 @@ export class ListComponent extends BaseComponent {
     )
   }
 
-  abastecerFrota(fuel: Fuel){
-    if (this.vehicleServicesToFuel(fuel)) {
-      this.getSnackService().popupBottom('Frota abastecido!')
-      this.vehicles=[]
-      this.ngOnInit()
-    } else {
-      this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
-    }
+  abastecerFrota(fuel: Fuel): void{
+    this.getVehicleService().toFuel(fuel).subscribe(
+      data => {
+        this.getSnackService().popupBottom('Frota abastecido!')
+        this.ngOnInit()
+      }, error => {
+        this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
+      }
+    )
   }
 }

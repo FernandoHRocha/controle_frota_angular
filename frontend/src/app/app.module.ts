@@ -17,13 +17,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent, CrudComponent } from './views/index';
-import { CreateComponent, ListComponent, MaintenanceComponent, FuelComponent } from './components/vehicles/index';
-import { FuelMainDeleteComponent } from '@components/index';
+import { CreateComponent, ListComponent, MaintenanceComponent, FuelComponent, FuelMainDeleteComponent } from '@components/index';
+import { RadioComponent } from '@shared/index';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,12 @@ import { FuelMainDeleteComponent } from '@components/index';
     CreateComponent,
     MaintenanceComponent,
     FuelComponent,
-    FuelMainDeleteComponent
+    FuelMainDeleteComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
+    MatRadioModule,
     MatDatepickerModule,
     ScrollingModule,
     ReactiveFormsModule,

@@ -4,6 +4,22 @@
     [vehicle]=vehicle
     (abastecerVeiculo)="abastecerFrota($event)"></app-fuel-main-delete>
 </div>
+
+<div class='instrucao' *ngIf="vehicles && vehicles.length === 0">
+    <mat-card>
+        <mat-card-title>
+            Nenhum veículo cadastrado.
+        </mat-card-title>
+        <mat-card-subtitle>
+            Para começar a adicionar novos veículos em sua frota utilize as opções abaixo.
+        </mat-card-subtitle>
+        <mat-card-content>
+            Cada veículo possui uma identificação de frota, para controle próprio da empresa, além do registro de placa e hodômetro.
+            Você poderá registrar abastecimentos e manutenções em cada veículo de sua frota.
+        </mat-card-content>
+    </mat-card>
+</div>
+
 <div class="criar">
     <button
     mat-raised-button
