@@ -4,4 +4,5 @@ export interface Vehicle {
     placa?: string,
     odometro?: number,
     manutencao?: number
+    tipo?: string
 }

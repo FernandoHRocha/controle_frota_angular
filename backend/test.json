@@ -25,6 +25,14 @@
       "odometro": 155000,
       "manutencao": "0",
       "id": 4
+    },
+    {
+      "frota": "001",
+      "placa": "abc1234",
+      "hodometro": "0",
+      "manutencao": "0",
+      "tipo": "Caminhao",
+      "id": 5
     }
   ],
   "fuel": [

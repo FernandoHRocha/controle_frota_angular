@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Injector, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
+import { BaseComponent } from '@shared/base.component';
 
 import { Vehicle, RadioOption } from '@shared/index';
 
@@ -8,24 +9,21 @@ import { Vehicle, RadioOption } from '@shared/index';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit {
-
-  @Output() cancelar = new EventEmitter<void>()
-  @Output() inserirVeiculo = new EventEmitter<Vehicle>()
+export class CreateComponent extends BaseComponent implements OnInit {
 
   formulario: FormGroup;
-
-  vehicles: Vehicle[];
-  vehicle: Vehicle = {};
-
   tipoControl: FormControl = new FormControl('',Validators.required);
   tiposVeiculo: RadioOption[] = [
-    { label : 'moto', value: 'MOTO' },
-    { label : 'carro', value: 'CARRO' },
-    { label : 'caminhao', value: 'CAMINHAO' },
+    { label : 'Moto', value: 'Moto' },
+    { label : 'Carro', value: 'Carro' },
+    { label : 'Caminhão', value: 'Caminhao' },
   ]
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    @Inject(Injector) injector: Injector,
+    private fb: FormBuilder) {
+    super(injector);
+  }
     
   ngOnInit(): void {
     this.formulario = this.fb.group({
@@ -35,19 +33,19 @@ export class CreateComponent implements OnInit {
       manutencao:[null]
     });
   }
-      
-  inserirFrota(): void {
-    //this.inserirVeiculo.emit(this.vehicle)
-  }
-
-  cancel(): void {
-    console.log('cancelar')
-  }
 
   onSubmit(form){
-    console.log('HTML',form.value)
-    console.log('FormGroup',this.formulario.value)
+    let result = this.formulario.value
+    var veiculo: Vehicle = result;
+    this.getVehicleService().insertVehicle(veiculo).subscribe(
+      data => {
+        console.log('data',data)
+        this.getSnackService().popupBottom('Veículo inserido com sucesso.')
+      },
+      error => {
+        console.log('error',error)
+        this.getSnackService().popupBottom('Erro ao inserir o veículo.')
+      }
+    )
   }
-
-
 }
