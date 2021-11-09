@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RadioOption } from './radio.model'
 
 @Component({
@@ -9,17 +10,17 @@ import { RadioOption } from './radio.model'
 export class RadioComponent implements OnInit {
 
   @Input() options: RadioOption[];
-  @Output() chooseOption = new EventEmitter<string>();
+  @Input() formulario: FormGroup;
+  @Input() chave: string;
+
   value: any;
   choose: string;
+  control: FormControl = new FormControl('',Validators.required)
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-  
-  changeOption(choose: string){
-    this.chooseOption.emit(choose)
+    this.formulario.addControl(this.chave, this.control)
   }
 
 }

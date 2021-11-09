@@ -5,22 +5,25 @@
     <mat-card-subtitle>
         Preencha com as informações do novo veículo da frota.
     </mat-card-subtitle>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
         <mat-card-content>
             <mat-form-field>
-                <input matInput placeholder="Frota" [(ngModel)]="vehicle.frota" name="frota">
+                <input matInput placeholder="Frota" formControlName="frota">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Placa" [(ngModel)]="vehicle.placa" name="placa">
+                <input matInput placeholder="Placa" formControlName="placa">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Odômetro" [(ngModel)]="vehicle.odometro" name="odometro">
+                <input matInput placeholder="Odômetro" formControlName="hodometro">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Manutenção" [(ngModel)]="vehicle.manutencao" name="manutencao">
+                <input matInput placeholder="Manutenção" formControlName="manutencao">
             </mat-form-field>
             <h3>Qual o tipo do veículo?</h3>
-            <app-radio (chooseOption)=setOption($event) [options]="tiposVeiculo"></app-radio>
+            <app-radio
+            chave="tipoVeiculo"
+            [formulario]="formulario"
+            [options]="tiposVeiculo"></app-radio>
         </mat-card-content>
         <mat-divider inset></mat-divider>
         <mat-card-actions>
@@ -33,6 +36,7 @@
         </mat-card-actions>
     </form>
     <mat-card-subtitle>
+        {{formulario.value | json}}
         O novo veículo estará disponível para consulta na guia frota.
     </mat-card-subtitle>
 </mat-card>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 
 import { Vehicle, RadioOption } from '@shared/index';
 
@@ -12,38 +12,43 @@ export class CreateComponent implements OnInit {
 
   @Output() cancelar = new EventEmitter<void>()
   @Output() inserirVeiculo = new EventEmitter<Vehicle>()
+
+  formulario: FormGroup;
+
   vehicles: Vehicle[];
   vehicle: Vehicle = {};
+
+  tipoControl={ tipo: ['',Validators.required] };
 
   tiposVeiculo: RadioOption[] = [
     { label : 'moto', value: 'MOTO' },
     { label : 'carro', value: 'CARRO' },
     { label : 'caminhao', value: 'CAMINHAO' },
   ]
-  escolharadio: string;
-  tipoVeiculo: string;
 
-  constructor(private router: Router) {}
+  constructor(private fb: FormBuilder) {}
     
   ngOnInit(): void {
+    this.formulario = this.fb.group({
+      frota: ['',Validators.required],
+      placa: ['',Validators.required],
+      hodometro: ['',],
+      manutencao:['']
+    });
   }
       
   inserirFrota(): void {
-    console.log(this.escolharadio)
     //this.inserirVeiculo.emit(this.vehicle)
   }
 
   cancel(): void {
-    this.cancelar.emit()
+    //this.cancelar.emit()
   }
 
   onSubmit(form){
-    console.log('formulario')
-    console.log(form)
+    console.log('HTML',form.value)
+    console.log('FormGroup',this.formulario.value)
   }
 
-  setOption($event){
-    this.escolharadio = $event
-  }
 
 }
