@@ -17,6 +17,7 @@ export class FuelMainDeleteComponent extends BaseComponent {
   hodometro: number = 0;
   volume: number;
   card: boolean = false;
+  deletePanel: boolean = false;
   
   abastecerFormGroup: FormGroup;
   manutencaoFormGroup: FormGroup;
@@ -41,26 +42,24 @@ export class FuelMainDeleteComponent extends BaseComponent {
     })
 
     this.manutencaoFormGroup = this.fb.group({
-      ihodometro : [this.hodometro, [Validators.required,Validators.min(this.vehicle.hodometro)]],
-      servicos : [null],
+      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.min(this.vehicle.hodometro)]],
+      servicos : [null, [Validators.required]],
       data : [null, [Validators.required]],
       tipo : [null, [Validators.required]]
-      //adicionar as opções para a preventiva
     })
 
   }
 
   manutencaoFrota(): void{
     let entradas =  this.manutencaoFormGroup.value
-    console.log(this.datepipe.transform(entradas.data,'dd/MM/YYYY'))
-/*    let manutencao : Maintenance = {
+    let manutencao : Maintenance = {
       idVehicle : this.vehicle.id,
-      hodometro : entradas.ihodometro,
-      services : entradas.iservices,
-      tipo : entradas.itipo,
-      date : entradas.idata.toString().substr(0,10)
+      hodometro : entradas.hodometro,
+      services : entradas.servicos,
+      tipo : entradas.tipo,
+      date : this.datepipe.transform(entradas.data,'dd/MM/YYYY')
     }
-    console.log(manutencao)*/
+    console.log(manutencao)
   }
 
   abastecerFrota(): void{
@@ -75,6 +74,18 @@ export class FuelMainDeleteComponent extends BaseComponent {
         this.ngOnInit()
       }, error => {
         this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
+      }
+    )
+  }
+
+  excluirFrota(): void {
+    this.getVehicleService().deleteVehicle(this.vehicle).subscribe(
+      data => {
+        this.getSnackService().popupBottom('O veículo foi removido da sua frota.')
+        this.ngOnInit()
+      },
+      error => {
+        this.getSnackService().popupBottom('Error ao conectar ao servidor.')
       }
     )
   }

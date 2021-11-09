@@ -1,4 +1,5 @@
 .card {
+    min-width: 200px;
     color: rgb(29,25,22);
     background-color: rgb(218,200,176);
     margin-bottom:10px;
@@ -35,12 +36,13 @@ button {
 }
 #entradas-formulario {
     display: flex;
+    flex-direction: column;
     justify-items: flex-start;
     justify-content: space-between;
 }
 #entradas-formulario mat-form-field{
     min-width: 180px;
-    width: 40%;
+    width: 80%;
 }
 
 .actions button:first-child, .actions button:last-child{
@@ -52,4 +54,7 @@ mat-card{
 }
 mat-card-title {
     font-weight: 300;
+}
+textarea {
+
 }
