@@ -20,12 +20,16 @@ export class CreateComponent extends BaseComponent implements OnInit {
   ]
 
   constructor(
-    @Inject(Injector) injector: Injector,
-    private fb: FormBuilder) {
+    @Inject(Injector) injector: Injector, private fb: FormBuilder) {
     super(injector);
   }
     
   ngOnInit(): void {
+    this.createForm()
+  }
+    
+
+  createForm(){
     this.formulario = this.fb.group({
       frota: [null,Validators.required],
       placa: [null,Validators.required],

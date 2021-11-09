@@ -53,7 +53,7 @@ export class VehicleService {
     this.getVehicle(fuel.idVehicle).subscribe(
       data => {
         vehicle = data
-        vehicle.odometro = fuel.odometro
+        vehicle.hodometro = fuel.hodometro
         this.updateVehicle(vehicle).subscribe()
       }
     )
@@ -77,7 +77,7 @@ export class VehicleService {
     this.getVehicle(maintenance.idVehicle).subscribe(
       data => {
         vehicle = data
-        vehicle.odometro = maintenance.odometro
+        vehicle.hodometro = maintenance.hodometro
         this.updateVehicle(vehicle).subscribe()
       }
     )

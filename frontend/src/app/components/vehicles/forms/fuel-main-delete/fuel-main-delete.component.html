@@ -8,34 +8,23 @@ class="card"
         Placa: <span class="placa">{{vehicle.placa | uppercase}}</span>
     </mat-card-title>
     <mat-card-subtitle>
-        Hodômetro {{vehicle.odometro ? vehicle.odometro : 0}} Km
+        Hodômetro {{vehicle.hodometro ? vehicle.hodometro : 0}} Km
     </mat-card-subtitle>
     <mat-card-content class="actions">
         <mat-accordion>
-            <mat-expansion-panel
-            class="form"
-            (opened)="estadoAbastecer = true"
-            (closed)="estadoAbastecer = false">
+            <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{estadoAbastecer ? 'Deseja registrar um abastecimento para este veículo?' : 'Registrar Abastecimento?'}}
+                        Registrar Abastecimento
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 {{ form.valid }}
                 {{ form.value | json }}
-                <form
-                #form='ngForm'
-                novalidate>
+                <form #form='ngForm' novalidate>
                     <div id="abastecimento">
                         <mat-form-field>
                             <mat-label>Hodômetro</mat-label>
-                            <input
-                            matInput
-                            type="number"
-                            [(ngModel)]=hodometro
-                            ngModel
-                            name="hodometro"
-                            [formControl]="hodometroFormControl">
+                            <input matInput type="number" [(ngModel)]=hodometro ngModel name="hodometro" [formControl]="hodometroFormControl">
                             <mat-hint align="start"><strong>Kilometragem ao abastecer</strong></mat-hint>
                             <mat-error *ngIf="hodometroFormControl.hasError('min')">
                                 Precisa ser <strong>maior</strong> que a atual.
@@ -73,13 +62,10 @@ class="card"
                     >Confirmar</button>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel
-            class="form"
-            (opened)="estadoManutencao = true"
-            (closed)="estadoManutencao = false">
+            <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{estadoManutencao ? 'Deseja registrar uma manutenção neste veículo?' : 'Registrar Manutenção?'}}
+                        Registrar Manutenção
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <p>Formulário de manutenção.</p>
@@ -87,13 +73,10 @@ class="card"
                     <button mat-button>Confirmar</button>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel
-            class="form"
-            (opened)="estadoExcluir = true"
-            (closed)="estadoExcluir = false">
+            <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{estadoExcluir ? 'Isto removerá o veículo e seus registros. Continuar?' : 'Excluir o veículo?'}}
+                        Excluir o veículo
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="botoesConfirmacao">

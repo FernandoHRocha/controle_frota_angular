@@ -1,8 +1,7 @@
 <div class='listagem'>
     <app-fuel-main-delete
     *ngFor="let vehicle of vehicles"
-    [vehicle]=vehicle
-    (abastecerVeiculo)="abastecerFrota($event)"></app-fuel-main-delete>
+    [vehicle]=vehicle></app-fuel-main-delete>
 </div>
 
 <div class='instrucao' *ngIf="vehicles && vehicles.length === 0">

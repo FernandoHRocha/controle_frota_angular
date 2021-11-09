@@ -1,7 +1,7 @@
 export interface Maintenance {
     id?: number;
     idVehicle?: number;
-    odometro?: number;
+    hodometro?: number;
     services?: string;
     preventive?: boolean;
     date?: any;
