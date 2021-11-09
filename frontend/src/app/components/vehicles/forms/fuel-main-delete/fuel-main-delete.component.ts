@@ -59,7 +59,6 @@ export class FuelMainDeleteComponent extends BaseComponent {
       tipo : entradas.tipo,
       date : this.datepipe.transform(entradas.data,'dd/MM/YYYY')
     }
-    console.log(manutencao)
   }
 
   abastecerFrota(): void{

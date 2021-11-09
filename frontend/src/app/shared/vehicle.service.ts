@@ -35,6 +35,7 @@ export class VehicleService {
   }
 
   deleteVehicle(vehicle: Vehicle): Observable<any>{
+    //deletar todas referências do veículo em outras tabelas
     return this.http.delete<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id)
   }
 
