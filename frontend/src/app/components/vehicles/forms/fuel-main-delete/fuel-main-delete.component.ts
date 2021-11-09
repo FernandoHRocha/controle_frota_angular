@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, Input, Injector, Inject } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 
 import { BaseComponent } from '@shared/base.component';
 import { Vehicle, Fuel, RadioOption, Maintenance } from '@shared/index';
@@ -37,16 +37,33 @@ export class FuelMainDeleteComponent extends BaseComponent {
   
   createForm(){
     this.abastecerFormGroup = this.fb.group({
-      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.min(this.vehicle.hodometro)]],
-      volume : [null, [Validators.required, Validators.min(1)]]
-    })
+      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.pattern(this.numberValidationPattern()),Validators.min(this.vehicle.hodometro)]],
+      volume : [null, [Validators.required,Validators.pattern(this.numberValidationPattern()), Validators.min(1)]]
+    },
+    {validators: this.mediaRazoavel})
 
     this.manutencaoFormGroup = this.fb.group({
-      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.min(this.vehicle.hodometro)]],
+      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.pattern(this.numberValidationPattern()),Validators.min(this.vehicle.hodometro)]],
       servicos : [null, [Validators.required]],
       data : [null, [Validators.required]],
       tipo : [null, [Validators.required]]
     })
+  }
+
+  mediaRazoavel(group: AbstractControl): {[key:string]: boolean} {
+    const hodometro:number = parseFloat(group.get('hodometro').value)
+    const volume:number = parseFloat(group.get('volume').value)
+    console.log('validador',hodometro)
+    console.log('validador',volume)
+    if (!hodometro || !volume){
+      return undefined
+    }
+    const media = ((hodometro - this.vehicle.hodometro) / volume)
+    console.log('validador',media)
+    if( media < 0.5 || media > 35 ){
+      return {mediaInviavel:true}
+    }
+    return undefined 
 
   }
 
@@ -61,7 +78,7 @@ export class FuelMainDeleteComponent extends BaseComponent {
     }
   }
 
-  abastecerFrota(): void{
+  /*abastecerFrota(): void{
     let fuel: Fuel = {
       hodometro : this.hodometro,
       volume : this.volume,
@@ -75,6 +92,9 @@ export class FuelMainDeleteComponent extends BaseComponent {
         this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
       }
     )
+  }*/
+  abastecerFrota(){
+    console.log(this.abastecerFormGroup)
   }
 
   excluirFrota(): void {

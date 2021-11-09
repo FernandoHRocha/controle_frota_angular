@@ -33,6 +33,9 @@ class="card"
                             <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('required')">
                                 Campo <strong>obrigatório.</strong>
                             </mat-error>
+                            <mat-error *ngIf="abastecerFormGroup.hasError('mediaInviavel')">
+                                A média parece inviável
+                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field>

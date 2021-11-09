@@ -1,8 +1,7 @@
 import { Inject, Injectable, Injector, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 
-import { VehicleService,  SnackbarService, Fuel, Maintenance, Vehicle } from "@shared/index";
-import { Observable, Subject } from "rxjs";
+import { VehicleService,  SnackbarService } from "@shared/index";
 
 @Injectable()
 export abstract class BaseComponent implements OnInit {
@@ -21,5 +20,9 @@ export abstract class BaseComponent implements OnInit {
     
     getSnackService(): SnackbarService {
         return this.injector.get(SnackbarService)
+    }
+
+    numberValidationPattern(): any{
+        return /^[0-9]*$/
     }
 }
