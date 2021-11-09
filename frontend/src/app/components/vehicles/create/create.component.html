@@ -21,17 +21,18 @@
             </mat-form-field>
             <h3>Qual o tipo do veículo?</h3>
             <app-radio
-            chave="tipoVeiculo"
+            chave="tipo"
+            [control]="tipoControl"
             [formulario]="formulario"
             [options]="tiposVeiculo"></app-radio>
         </mat-card-content>
         <mat-divider inset></mat-divider>
         <mat-card-actions>
-            <button mat-raised-button (click)="cancel()">
-                Cancelar
+            <button type="reset"  mat-raised-button>
+                Limpar Campos
             </button>
-            <button type="submit" mat-raised-button color="primary" (click)="inserirFrota()">
-                Inserir
+            <button [disabled]="!formulario.valid" type="submit" mat-raised-button color="primary" (click)="inserirFrota()">
+                Registrar Novo Veículo
             </button>
         </mat-card-actions>
     </form>

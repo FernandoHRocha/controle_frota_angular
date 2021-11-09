@@ -18,8 +18,7 @@ export class CreateComponent implements OnInit {
   vehicles: Vehicle[];
   vehicle: Vehicle = {};
 
-  tipoControl={ tipo: ['',Validators.required] };
-
+  tipoControl: FormControl = new FormControl('',Validators.required);
   tiposVeiculo: RadioOption[] = [
     { label : 'moto', value: 'MOTO' },
     { label : 'carro', value: 'CARRO' },
@@ -30,10 +29,10 @@ export class CreateComponent implements OnInit {
     
   ngOnInit(): void {
     this.formulario = this.fb.group({
-      frota: ['',Validators.required],
-      placa: ['',Validators.required],
-      hodometro: ['',],
-      manutencao:['']
+      frota: [null,Validators.required],
+      placa: [null,Validators.required],
+      hodometro: [null,],
+      manutencao:[null]
     });
   }
       
@@ -42,7 +41,7 @@ export class CreateComponent implements OnInit {
   }
 
   cancel(): void {
-    //this.cancelar.emit()
+    console.log('cancelar')
   }
 
   onSubmit(form){
