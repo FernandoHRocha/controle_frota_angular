@@ -17,7 +17,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
     { label : 'Moto', value: 'Moto' },
     { label : 'Carro', value: 'Carro' },
     { label : 'Caminhão', value: 'Caminhao' },
-  ]
+  ];
 
   constructor(
     @Inject(Injector) injector: Injector, private fb: FormBuilder) {
@@ -31,20 +31,21 @@ export class CreateComponent extends BaseComponent implements OnInit {
 
   createForm(){
     this.formulario = this.fb.group({
-      frota: [null,Validators.required],
-      placa: [null,Validators.required],
-      hodometro: [null,],
-      manutencao:[null]
+      frota : [null,Validators.required],
+      placa : [null,Validators.required],
+      hodometro : [null],
+      manutencao : [null]
     });
   }
 
-  onSubmit(form){
+  onSubmit(){
     let result = this.formulario.value
     var veiculo: Vehicle = result;
     this.getVehicleService().insertVehicle(veiculo).subscribe(
       data => {
         console.log('data',data)
         this.getSnackService().popupBottom('Veículo inserido com sucesso.')
+        this.formulario.reset()
       },
       error => {
         console.log('error',error)

@@ -12,67 +12,84 @@ class="card"
     </mat-card-subtitle>
     <mat-card-content class="actions">
         <mat-accordion>
-            <mat-expansion-panel>
+            <!--FORMULÁRIOS-->
+            <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Registrar Abastecimento
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                {{ form.valid }}
-                {{ form.value | json }}
-                <form #form='ngForm' novalidate>
-                    <div id="abastecimento">
+                <form [formGroup]="abastecerFormGroup" (ngSubmit)="abastecerFrota()">
+                    <div id="entradas-formulario">
                         <mat-form-field>
                             <mat-label>Hodômetro</mat-label>
-                            <input matInput type="number" [(ngModel)]=hodometro ngModel name="hodometro" [formControl]="hodometroFormControl">
+                            <input matInput type="number" formControlName="hodometro">
                             <mat-hint align="start"><strong>Kilometragem ao abastecer</strong></mat-hint>
-                            <mat-error *ngIf="hodometroFormControl.hasError('min')">
+                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('min')">
                                 Precisa ser <strong>maior</strong> que a atual.
                             </mat-error>
-                            <mat-error *ngIf="hodometroFormControl.hasError('required')">
+                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('required')">
                                 Campo <strong>obrigatório.</strong>
                             </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <mat-label>Combustível</mat-label>
-                            <input
-                            matInput
-                            type="number"
-                            ngModel
-                            name="volume"
-                            [(ngModel)]=volume
-                            [formControl]="fuelFormControl">
+                            <input matInput type="number" formControlName="volume">
                             <mat-hint align="start"><strong>Volume de combustível</strong></mat-hint>
-                            <mat-error *ngIf="fuelFormControl.hasError('min')">
+                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('min')">
                                 Precisa ser <strong>maior</strong> que a atual.
                             </mat-error>
-                            <mat-error *ngIf="fuelFormControl.hasError('required')">
-                                Campo <strong>obrigatório.</strong>
+                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('required')">
+                                Campo <strong>obrigatório</strong>.
                             </mat-error>
                         </mat-form-field>
                     </div>
+                    <div *ngIf="abastecerFormGroup.valid" class="botoesConfirmacao">
+                        <button mat-button type="submit">Confirmar</button>
+                    </div>
                 </form>
-                <div
-                class="botoesConfirmacao"
-                *ngIf="!fuelFormControl.hasError('min') && !fuelFormControl.hasError('required')
-                         && !hodometroFormControl.hasError('min') && !hodometroFormControl.hasError('required')">
-                    <button
-                    mat-button
-                    (click)=abastecerFrota()
-                    >Confirmar</button>
-                </div>
             </mat-expansion-panel>
+            <!--DIVISÃO ENTRE OS FORMULÁROIS-->
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Registrar Manutenção
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <p>Formulário de manutenção.</p>
-                <div class="botoesConfirmacao">
-                    <button mat-button>Confirmar</button>
-                </div>
+                <form [formGroup]="manutencaoFormGroup" (ngSubmit)="manutencaoFrota()">
+                    <div class="entradas-formulario">
+                        <mat-form-field>
+                            <mat-label>Hodômetro</mat-label>
+                            <input matInput type="number" formControlName="ihodometro">
+                            <mat-hint align="start"><strong>Kilometragem da manutenção.</strong></mat-hint>
+                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('min')">
+                                Precisa ser <strong>maior</strong> que a atual.
+                            </mat-error>
+                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('required')">
+                                Campo <strong>obrigatório</strong>.
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Serviços realizados.</mat-label>
+                            <textarea
+                            matInput
+                            placeholder="Breve descrição dos serviços prestados na manutenção"
+                            formControlName="servicos"></textarea>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Data da Manutenção</mat-label>
+                            <input matInput [matDatepicker]="picker" readonly formControlName=data>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="botoesConfirmacao">
+                        <button mat-button>Confirmar</button>
+                    </div>
+                </form>
             </mat-expansion-panel>
+            {{ manutencaoFormGroup.value | json }}
+            <!--DIVISÃO ENTRE OS FORMULÁRIOS-->
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>

@@ -5,24 +5,24 @@
       "placa": "jkk8749",
       "manutencao": "",
       "id": 2,
-      "odometro": 12500
+      "hodometro": 12500
     },
     {
       "frota": "789",
       "placa": "jkl4444",
       "id": 1,
-      "odometro": 5500
+      "hodometro": 5500
     },
     {
       "frota": "123",
       "placa": "lkj9087",
       "id": 3,
-      "odometro": 2000
+      "hodometro": 2000
     },
     {
       "frota": "456",
       "placa": "wer7897",
-      "odometro": 155000,
+      "hodometro": 155000,
       "manutencao": "0",
       "id": 4
     },
@@ -33,317 +33,333 @@
       "manutencao": "0",
       "tipo": "Caminhao",
       "id": 5
+    },
+    {
+      "frota": "444",
+      "placa": "agi8403",
+      "hodometro": "500",
+      "manutencao": "0",
+      "tipo": "Carro",
+      "id": 6
+    },
+    {
+      "frota": "789",
+      "placa": "abg5478",
+      "hodometro": "0",
+      "manutencao": "0",
+      "tipo": "Moto",
+      "id": 7
     }
   ],
   "fuel": [
     {
-      "odometro": 350,
+      "hodometro": 350,
       "volume": 145,
       "idVehicle": 2,
       "id": 1
     },
     {
-      "odometro": 400,
+      "hodometro": 400,
       "volume": 30,
       "idVehicle": 2,
       "id": 2
     },
     {
-      "odometro": 200,
+      "hodometro": 200,
       "volume": 90,
       "idVehicle": 1,
       "id": 3
     },
     {
-      "odometro": 400,
+      "hodometro": 400,
       "volume": 25,
       "idVehicle": 2,
       "id": 4
     },
     {
-      "odometro": 450,
+      "hodometro": 450,
       "volume": 50,
       "idVehicle": 2,
       "id": 5
     },
     {
-      "odometro": 200,
+      "hodometro": 200,
       "volume": 150,
       "idVehicle": 1,
       "id": 6
     },
     {
-      "odometro": 519,
+      "hodometro": 519,
       "volume": 46,
       "idVehicle": 2,
       "id": 7
     },
     {
-      "odometro": 650,
+      "hodometro": 650,
       "volume": 60,
       "idVehicle": 2,
       "id": 8
     },
     {
-      "odometro": 725,
+      "hodometro": 725,
       "volume": 45,
       "idVehicle": 2,
       "id": 9
     },
     {
-      "odometro": 1200,
+      "hodometro": 1200,
       "volume": 624,
       "idVehicle": 1,
       "id": 10
     },
     {
-      "odometro": 1450,
+      "hodometro": 1450,
       "volume": 200,
       "idVehicle": 1,
       "id": 11
     },
     {
-      "odometro": 1230,
+      "hodometro": 1230,
       "volume": 401,
       "idVehicle": 2,
       "id": 12
     },
     {
-      "odometro": 1500,
+      "hodometro": 1500,
       "volume": 127,
       "idVehicle": 2,
       "id": 13
     },
     {
-      "odometro": 2000,
+      "hodometro": 2000,
       "volume": 300,
       "idVehicle": 1,
       "id": 14
     },
     {
-      "odometro": 2000,
+      "hodometro": 2000,
       "volume": 200,
       "idVehicle": 2,
       "id": 15
     },
     {
-      "odometro": 2200,
+      "hodometro": 2200,
       "volume": 100,
       "idVehicle": 2,
       "id": 16
     },
     {
-      "odometro": 2500,
+      "hodometro": 2500,
       "volume": 200,
       "idVehicle": 2,
       "id": 17
     },
     {
-      "odometro": 3500,
+      "hodometro": 3500,
       "volume": 654,
       "idVehicle": 2,
       "id": 18
     },
     {
-      "odometro": 3501,
+      "hodometro": 3501,
       "volume": 1,
       "idVehicle": 2,
       "id": 19
     },
     {
-      "odometro": 4200,
+      "hodometro": 4200,
       "volume": 456,
       "idVehicle": 2,
       "id": 20
     },
     {
-      "odometro": 3600,
+      "hodometro": 3600,
       "volume": 60,
       "idVehicle": 2,
       "id": 21
     },
     {
-      "odometro": 4000,
+      "hodometro": 4000,
       "volume": 250,
       "idVehicle": 2,
       "id": 22
     },
     {
-      "odometro": 5000,
+      "hodometro": 5000,
       "volume": 650,
       "idVehicle": 2,
       "id": 23
     },
     {
-      "odometro": 6000,
+      "hodometro": 6000,
       "volume": 475,
       "idVehicle": 2,
       "id": 24
     },
     {
-      "odometro": 2750,
+      "hodometro": 2750,
       "volume": 298,
       "idVehicle": 1,
       "id": 25
     },
     {
-      "odometro": 155000,
+      "hodometro": 155000,
       "volume": 600,
       "idVehicle": 4,
       "id": 26
     },
     {
-      "odometro": 3000,
+      "hodometro": 3000,
       "volume": 150,
       "idVehicle": 1,
       "id": 27
     },
     {
-      "odometro": 3500,
+      "hodometro": 3500,
       "volume": 420,
       "idVehicle": 1,
       "id": 28
     },
     {
-      "odometro": 4000,
+      "hodometro": 4000,
       "volume": 300,
       "idVehicle": 1,
       "id": 29
     },
     {
-      "odometro": 4375,
+      "hodometro": 4375,
       "volume": 125,
       "idVehicle": 1,
       "id": 30
     },
     {
-      "odometro": 6100,
+      "hodometro": 6100,
       "volume": 45,
       "idVehicle": 2,
       "id": 31
     },
     {
-      "odometro": 6500,
+      "hodometro": 6500,
       "volume": 150,
       "idVehicle": 2,
       "id": 32
     },
     {
-      "odometro": 1510,
+      "hodometro": 1510,
       "volume": 650,
       "idVehicle": 3,
       "id": 33
     },
     {
-      "odometro": 1750,
+      "hodometro": 1750,
       "volume": 170,
       "idVehicle": 3,
       "id": 34
     },
     {
-      "odometro": 7000,
+      "hodometro": 7000,
       "volume": 230,
       "idVehicle": 2,
       "id": 35
     },
     {
-      "odometro": 7200,
+      "hodometro": 7200,
       "volume": 120,
       "idVehicle": 2,
       "id": 36
     },
     {
-      "odometro": 2000,
+      "hodometro": 2000,
       "volume": 150,
       "idVehicle": 3,
       "id": 37
     },
     {
-      "odometro": 5000,
+      "hodometro": 5000,
       "volume": 450,
       "idVehicle": 1,
       "id": 38
     },
     {
-      "odometro": 5200,
+      "hodometro": 5200,
       "volume": 100,
       "idVehicle": 1,
       "id": 39
     },
     {
-      "odometro": 7500,
+      "hodometro": 7500,
       "volume": 200,
       "idVehicle": 2,
       "id": 40
     },
     {
-      "odometro": 8000,
+      "hodometro": 8000,
       "volume": 200,
       "idVehicle": 2,
       "id": 41
     },
     {
-      "odometro": 9000,
+      "hodometro": 9000,
       "volume": 400,
       "idVehicle": 2,
       "id": 42
     },
     {
-      "odometro": 9500,
+      "hodometro": 9500,
       "volume": 400,
       "idVehicle": 2,
       "id": 43
     },
     {
-      "odometro": 10000,
+      "hodometro": 10000,
       "volume": 400,
       "idVehicle": 2,
       "id": 44
     },
     {
-      "odometro": 10100,
+      "hodometro": 10100,
       "volume": 45,
       "idVehicle": 2,
       "id": 45
     },
     {
-      "odometro": 10200,
+      "hodometro": 10200,
       "volume": 60,
       "idVehicle": 2,
       "id": 46
     },
     {
-      "odometro": 10500,
+      "hodometro": 10500,
       "volume": 200,
       "idVehicle": 2,
       "id": 47
     },
     {
-      "odometro": 11000,
+      "hodometro": 11000,
       "volume": 400,
       "idVehicle": 2,
       "id": 48
     },
     {
-      "odometro": 12000,
+      "hodometro": 12000,
       "volume": 450,
       "idVehicle": 2,
       "id": 49
     },
     {
-      "odometro": 12200,
+      "hodometro": 12200,
       "volume": 100,
       "idVehicle": 2,
       "id": 50
     },
     {
-      "odometro": 5500,
+      "hodometro": 5500,
       "volume": 200,
       "idVehicle": 1,
       "id": 51
     },
     {
-      "odometro": 12500,
+      "hodometro": 12500,
       "volume": 100,
       "idVehicle": 2,
       "id": 52

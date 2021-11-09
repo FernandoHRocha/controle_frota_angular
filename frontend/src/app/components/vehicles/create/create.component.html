@@ -5,7 +5,7 @@
     <mat-card-subtitle>
         Preencha com as informações do novo veículo da frota.
     </mat-card-subtitle>
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <mat-card-content>
             <mat-form-field>
                 <input matInput placeholder="Frota" formControlName="frota">
@@ -31,7 +31,10 @@
             <button type="reset"  mat-raised-button>
                 Limpar Campos
             </button>
-            <button [disabled]="!formulario.valid" type="submit" mat-raised-button color="primary">
+            <button
+            *ngIf="formulario.valid"
+            type="submit"
+            mat-raised-button color="primary">
                 Registrar Novo Veículo
             </button>
         </mat-card-actions>

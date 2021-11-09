@@ -3,6 +3,6 @@ export interface Maintenance {
     idVehicle?: number;
     hodometro?: number;
     services?: string;
-    preventive?: boolean;
+    tipo?: boolean;
     date?: any;
 }

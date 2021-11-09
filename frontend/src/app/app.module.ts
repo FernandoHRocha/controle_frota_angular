@@ -15,9 +15,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion'
-import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatRadioModule } from '@angular/material/radio';
+import { DatePipe } from '@angular/common'
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -44,6 +46,7 @@ import { RadioComponent } from '@shared/index';
   imports: [
     BrowserModule,
     MatRadioModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     ScrollingModule,
     ReactiveFormsModule,
@@ -61,7 +64,7 @@ import { RadioComponent } from '@shared/index';
     MatFormFieldModule,
     MatListModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

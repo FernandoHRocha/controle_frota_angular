@@ -33,12 +33,12 @@ button {
     font-weight: bold;
     color:white;
 }
-#abastecimento {
+#entradas-formulario {
     display: flex;
     justify-items: flex-start;
     justify-content: space-between;
 }
-#abastecimento mat-form-field{
+#entradas-formulario mat-form-field{
     min-width: 180px;
     width: 40%;
 }

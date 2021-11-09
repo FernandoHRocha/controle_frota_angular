@@ -1,8 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, Input, Injector, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 import { BaseComponent } from '@shared/base.component';
-import { Vehicle, Fuel } from '@shared/index';
+import { Vehicle, Fuel, RadioOption, Maintenance } from '@shared/index';
 
 @Component({
   selector: 'app-fuel-main-delete',
@@ -10,41 +11,56 @@ import { Vehicle, Fuel } from '@shared/index';
   styleUrls: ['./fuel-main-delete.component.css']
 })
 export class FuelMainDeleteComponent extends BaseComponent {
+  
+  @Input() vehicle: Vehicle;
 
   hodometro: number = 0;
   volume: number;
   card: boolean = false;
-
-  @Input() vehicle: Vehicle;
   
-  abastecerForm: FormGroup;
-  manutencaoForm: FormGroup;
+  abastecerFormGroup: FormGroup;
+  manutencaoFormGroup: FormGroup;
+  manutencaoFormControl: FormControl = new FormControl('',Validators.required);
+  tiposManutencao: RadioOption[] = [
+    { label : 'Preventiva', value : 'Preventiva' },
+    { label : 'Corretiva', value : 'Corretiva' }
+  ];
 
-  hodometroFormControl = new FormControl('',[Validators.required])
-  fuelFormControl = new FormControl('',[Validators.required,Validators.min(0)])
-
-  constructor(@Inject(Injector) injector: Injector, private fb: FormBuilder) {
+  constructor(@Inject(Injector) injector: Injector, private fb: FormBuilder, private datepipe: DatePipe) {
     super(injector)
   }
   
   ngOnInit(): void {
     this.createForm()
-    this.hodometro = this.vehicle.hodometro ? this.vehicle.hodometro : 0
-    this.hodometroFormControl.setValidators(Validators.min(this.vehicle.hodometro))
+  }
+  
+  createForm(){
+    this.abastecerFormGroup = this.fb.group({
+      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.min(this.vehicle.hodometro)]],
+      volume : [null, [Validators.required, Validators.min(1)]]
+    })
+
+    this.manutencaoFormGroup = this.fb.group({
+      ihodometro : [this.hodometro, [Validators.required,Validators.min(this.vehicle.hodometro)]],
+      servicos : [null],
+      data : [null, [Validators.required]],
+      tipo : [null, [Validators.required]]
+      //adicionar as opções para a preventiva
+    })
+
   }
 
-  createForm(){
-    this.abastecerForm = this.fb.group({
-      hodometro : [this.hodometro, Validators.required],
-      volume : [null, Validators.required]
-    })
-
-    this.manutencaoForm = this.fb.group({
-      hodometro: [this.hodometro, Validators.required],
-      services: [null],
-      date: [null]//adicionar as opções para a preventiva
-    })
-
+  manutencaoFrota(): void{
+    let entradas =  this.manutencaoFormGroup.value
+    console.log(this.datepipe.transform(entradas.data,'dd/MM/YYYY'))
+/*    let manutencao : Maintenance = {
+      idVehicle : this.vehicle.id,
+      hodometro : entradas.ihodometro,
+      services : entradas.iservices,
+      tipo : entradas.itipo,
+      date : entradas.idata.toString().substr(0,10)
+    }
+    console.log(manutencao)*/
   }
 
   abastecerFrota(): void{
