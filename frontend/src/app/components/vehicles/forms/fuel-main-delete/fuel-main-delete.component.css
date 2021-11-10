@@ -1,8 +1,9 @@
 .card {
-    min-width: 200px;
+    min-width: 300px;
     color: rgb(29,25,22);
     background-color: rgb(218,200,176);
     margin-bottom:10px;
+    padding-right: 10px;
 }
 .actions .excluir {
     background-color:rgb(29,25,22);

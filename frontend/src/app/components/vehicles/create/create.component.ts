@@ -28,7 +28,6 @@ export class CreateComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     this.createForm()
   }
-    
 
   createForm(){
     this.formulario = this.fb.group({

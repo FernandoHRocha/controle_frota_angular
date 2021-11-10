@@ -17,7 +17,9 @@ const routes: Routes = [
       {path:'listar', component: ListComponent},
       {path:'criar', component: CreateComponent}
     ]
-  }
+  },{
+    path: 'sobre', loadChildren: () => import('./components/about/about.module').then( m => m.AboutModule)
+  },
 ];
 
 @NgModule({

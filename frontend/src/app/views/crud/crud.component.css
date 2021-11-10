@@ -1,24 +1,4 @@
-.list {
-    display: flex;
-    background-color:white;
-}
-li {
-    padding: 10px 0;
-    list-style-type: none;
-}
-ul {
-    padding: 0;
-    padding-right:20px;
-}
-.lista-veiculos {
-    height: calc(100vh - 140px);
-    width: 100%;
-    margin:0 0 0 10px;
-}
-.footer {
-    width: 100%;
-    background-color: white;
-    position: fixed;
-    padding:5px;
-    bottom: 30px;
+.background {
+    background-color: bisque;
+    padding-bottom: 45px;
 }

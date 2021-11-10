@@ -1,7 +1,24 @@
-<div class='listagem'>
-    <app-fuel-main-delete
-    *ngFor="let vehicle of vehicles"
-    [vehicle]=vehicle></app-fuel-main-delete>
+<div class="categorias">
+    <mat-card class='listagem'>
+        <mat-card-title>Caminhões</mat-card-title>
+        <app-fuel-main-delete
+        *ngFor="let vehicle of caminhoes"
+        [vehicle]=vehicle></app-fuel-main-delete>
+    </mat-card>
+
+    <mat-card class='listagem'>
+        <mat-card-title>Carros</mat-card-title>
+        <app-fuel-main-delete
+        *ngFor="let vehicle of carros"
+        [vehicle]=vehicle></app-fuel-main-delete>
+    </mat-card>
+
+    <mat-card class='listagem'>
+        <mat-card-title>Motos</mat-card-title>
+        <app-fuel-main-delete
+        *ngFor="let vehicle of motos"
+        [vehicle]=vehicle></app-fuel-main-delete>
+    </mat-card>
 </div>
 
 <div class='instrucao' *ngIf="vehicles && vehicles.length === 0">
