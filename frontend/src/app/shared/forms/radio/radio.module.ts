@@ -17,6 +17,9 @@ import { RadioComponent } from "@shared/forms/radio/radio.component";
     ],
     exports:[
         MatRadioModule,
+        FormsModule,
+        CommonModule,
+        ReactiveFormsModule,
         RadioComponent
     ]
 })

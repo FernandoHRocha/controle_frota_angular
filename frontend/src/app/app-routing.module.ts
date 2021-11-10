@@ -19,12 +19,12 @@ const routes: Routes = [
         component: ListComponent},
       {
         path:'criar',
-        component: CreateComponent
+        loadChildren: () => import('@components/create/create.module').then(m => m.CreateModule)
       }
     ]
   },{
     path: 'sobre',
-    loadChildren: () => import('./components/about/about.module').then( m => m.AboutModule)
+    loadChildren: () => import('./components/about/about.module').then(m => m.AboutModule)
   },
 ];
 

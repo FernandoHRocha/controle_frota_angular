@@ -11,7 +11,6 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion'
@@ -26,7 +25,7 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent, CrudComponent } from './views/index';
-import { CreateComponent, ListComponent, MaintenanceComponent, FuelComponent, FuelMainDeleteComponent } from '@components/index';
+import { ListComponent, MaintenanceComponent, FuelComponent, FuelMainDeleteComponent } from '@components/index';
 import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    CreateComponent,
     NavComponent,
     HomeComponent,
     CrudComponent,
@@ -51,7 +49,6 @@ import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
     MatNativeDateModule,
     MatDatepickerModule,
     ScrollingModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -62,7 +59,6 @@ import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
     MatButtonModule,
     MatSnackBarModule,
     MatInputModule,
-    FormsModule,
     MatFormFieldModule,
     MatListModule
   ],
