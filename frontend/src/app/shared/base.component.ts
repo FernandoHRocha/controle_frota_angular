@@ -1,13 +1,11 @@
 import { Inject, Injectable, Injector, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { VehicleService,  SnackbarService } from "@shared/index";
+import { VehicleService,  SnackbarService, RoutingService } from "@shared/index";
 
 @Injectable()
 export abstract class BaseComponent implements OnInit {
     
-    private router: Router;
-
     constructor(@Inject(Injector) private injector: Injector) {
     }
 
@@ -15,11 +13,15 @@ export abstract class BaseComponent implements OnInit {
     }
     
     getVehicleService(): VehicleService {
-        return this.injector.get(VehicleService)
+        return this.injector.get(VehicleService);
     }
     
     getSnackService(): SnackbarService {
-        return this.injector.get(SnackbarService)
+        return this.injector.get(SnackbarService);
+    }
+
+    getRouterService(): RoutingService{
+        return this.injector.get(RoutingService);
     }
 
     numberValidationPattern(): any{

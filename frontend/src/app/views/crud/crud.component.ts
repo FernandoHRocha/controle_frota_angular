@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { Vehicle, VehicleService, Fuel } from '@shared/index';
-import { SnackbarService } from '@shared/snackbar.service';
+import { Vehicle, VehicleService, Fuel, SnackbarService } from '@shared/index';
 
 @Component({
   selector: 'app-crud',

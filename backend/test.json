@@ -53,6 +53,14 @@
       "manutencao": "0",
       "tipo": "Moto",
       "id": 7
+    },
+    {
+      "frota": "444",
+      "placa": "aaa1111",
+      "hodometro": "0",
+      "manutencao": "0",
+      "tipo": "Carro",
+      "id": 8
     }
   ],
   "fuel": [

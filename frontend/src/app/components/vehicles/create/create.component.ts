@@ -20,7 +20,8 @@ export class CreateComponent extends BaseComponent implements OnInit {
   ];
 
   constructor(
-    @Inject(Injector) injector: Injector, private fb: FormBuilder) {
+    @Inject(Injector) injector: Injector,
+    private fb: FormBuilder) {
     super(injector);
   }
     
@@ -46,6 +47,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
         console.log('data',data)
         this.getSnackService().popupBottom('Veículo inserido com sucesso.')
         this.formulario.reset()
+        this.getRouterService().navigate('/frota')
       },
       error => {
         console.log('error',error)
