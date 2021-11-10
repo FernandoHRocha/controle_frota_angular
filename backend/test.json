@@ -69,6 +69,14 @@
       "manutencao": "0",
       "tipo": "Carro",
       "id": 9
+    },
+    {
+      "frota": "755",
+      "placa": "ghj1234",
+      "hodometro": "0",
+      "manutencao": "0",
+      "tipo": "Carro",
+      "id": 10
     }
   ],
   "fuel": [

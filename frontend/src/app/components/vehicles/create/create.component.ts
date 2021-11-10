@@ -2,7 +2,7 @@ import { Component, OnInit, Injector, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { BaseComponent } from '@shared/base.component';
 
-import { Vehicle, RadioOption } from '@shared/index';
+import { Vehicle } from '@shared/index';
 
 @Component({
   selector: 'app-create',
@@ -13,7 +13,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
 
   formulario: FormGroup;
   tipoControl: FormControl = new FormControl('',Validators.required);
-  tiposVeiculo: RadioOption[] = [
+  tiposVeiculo: object[] = [
     { label : 'Moto', value: 'Moto' },
     { label : 'Carro', value: 'Carro' },
     { label : 'Caminhão', value: 'Caminhao' },

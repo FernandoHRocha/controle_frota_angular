@@ -36,7 +36,6 @@ export class ListComponent extends BaseComponent {
       }
     )
   }
-
 }
 function filtrarCaminhoes (veiculo) {
   if (veiculo.tipo === 'Caminhao'){

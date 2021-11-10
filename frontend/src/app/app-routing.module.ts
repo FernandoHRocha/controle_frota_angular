@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component'
 import { CrudComponent } from './views/crud/crud.component'
-import { ListComponent, CreateComponent } from '@components/index';
+import { CreateComponent, ListComponent } from '@components/index';
 
 const routes: Routes = [
   {
@@ -14,11 +14,17 @@ const routes: Routes = [
     component:CrudComponent,
     children: [
       {path:'', redirectTo:'listar',pathMatch:'full'},
-      {path:'listar', component: ListComponent},
-      {path:'criar', component: CreateComponent}
+      {
+        path:'listar',
+        component: ListComponent},
+      {
+        path:'criar',
+        component: CreateComponent
+      }
     ]
   },{
-    path: 'sobre', loadChildren: () => import('./components/about/about.module').then( m => m.AboutModule)
+    path: 'sobre',
+    loadChildren: () => import('./components/about/about.module').then( m => m.AboutModule)
   },
 ];
 

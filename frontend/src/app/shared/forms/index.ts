@@ -1,2 +1,2 @@
 export * from './radio/radio.component'
-export * from './radio/radio.model'
+export * from './radio/radio.module'

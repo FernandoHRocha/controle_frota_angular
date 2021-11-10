@@ -18,7 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MatRadioModule } from '@angular/material/radio';
+
 import { DatePipe } from '@angular/common'
 import { MatChipsModule } from '@angular/material/chips';
 
@@ -27,27 +27,26 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent, CrudComponent } from './views/index';
 import { CreateComponent, ListComponent, MaintenanceComponent, FuelComponent, FuelMainDeleteComponent } from '@components/index';
-import { RadioComponent, DecimalPipe, CustomValidators } from '@shared/index';
+import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    CreateComponent,
     NavComponent,
     HomeComponent,
     CrudComponent,
     ListComponent,
-    CreateComponent,
     MaintenanceComponent,
     FuelComponent,
     FuelMainDeleteComponent,
-    RadioComponent,
     DecimalPipe,
   ],
   imports: [
     BrowserModule,
-    MatRadioModule,
+    RadioModule,
     MatChipsModule,
     MatNativeDateModule,
     MatDatepickerModule,

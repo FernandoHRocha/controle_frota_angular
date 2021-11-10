@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { RadioOption } from './radio.model'
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-radio',
@@ -9,7 +8,7 @@ import { RadioOption } from './radio.model'
 })
 export class RadioComponent implements OnInit {
 
-  @Input() options: RadioOption[];
+  @Input() options;
   @Input() formulario: FormGroup;
   @Input() control: FormControl;
   @Input() chave: string;

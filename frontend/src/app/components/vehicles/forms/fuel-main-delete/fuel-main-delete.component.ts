@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit, Input, Injector, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 
-import { BaseComponent, Vehicle, Fuel, RadioOption, Maintenance } from '@shared/index';
+import { BaseComponent, Vehicle, Fuel, Maintenance } from '@shared/index';
 import { CustomValidators } from '@shared/validators/customValidators';
 
 @Component({
@@ -23,7 +23,7 @@ export class FuelMainDeleteComponent extends BaseComponent {
   abastecerFormGroup: FormGroup;
   manutencaoFormGroup: FormGroup;
   manutencaoFormControl: FormControl = new FormControl('',Validators.required);
-  tiposManutencao: RadioOption[] = [
+  tiposManutencao: object[] = [
     { label : 'Preventiva', value : 'Preventiva' },
     { label : 'Corretiva', value : 'Corretiva' }
   ];
@@ -66,14 +66,16 @@ export class FuelMainDeleteComponent extends BaseComponent {
       tipo : entradas.tipo,
       date : this.datepipe.transform(entradas.data,'dd/MM/YYYY')
     }
+    console.log('manutencao',manutencao)
   }
 
-  /*abastecerFrota(): void{
+  abastecerFrota(): void{
     let fuel: Fuel = {
       hodometro : this.hodometro,
       volume : this.volume,
       idVehicle : this.vehicle.id
     };
+    console.log('abastecer',fuel)
     this.getVehicleService().toFuel(fuel).subscribe(
       data => {
         this.getSnackService().popupBottom('Frota abastecido!')
@@ -82,13 +84,10 @@ export class FuelMainDeleteComponent extends BaseComponent {
         this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
       }
     )
-  }*/
-
-  abastecerFrota(){
-    console.log('enviar')
   }
 
   excluirFrota(): void {
+    console.log('excluir',this.vehicle)
     this.getVehicleService().deleteVehicle(this.vehicle).subscribe(
       data => {
         this.getSnackService().popupBottom('O veículo foi removido da sua frota.')
