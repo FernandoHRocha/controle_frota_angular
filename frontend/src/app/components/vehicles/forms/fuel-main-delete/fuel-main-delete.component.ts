@@ -2,8 +2,8 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit, Input, Injector, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 
-import { BaseComponent } from '@shared/base.component';
-import { Vehicle, Fuel, RadioOption, Maintenance } from '@shared/index';
+import { BaseComponent, Vehicle, Fuel, RadioOption, Maintenance } from '@shared/index';
+import { CustomValidators } from '@shared/validators/customValidators';
 
 @Component({
   selector: 'app-fuel-main-delete',
@@ -19,6 +19,7 @@ export class FuelMainDeleteComponent extends BaseComponent {
   card: boolean = false;
   deletePanel: boolean = false;
   
+  
   abastecerFormGroup: FormGroup;
   manutencaoFormGroup: FormGroup;
   manutencaoFormControl: FormControl = new FormControl('',Validators.required);
@@ -27,8 +28,12 @@ export class FuelMainDeleteComponent extends BaseComponent {
     { label : 'Corretiva', value : 'Corretiva' }
   ];
 
-  constructor(@Inject(Injector) injector: Injector, private fb: FormBuilder, private datepipe: DatePipe) {
-    super(injector)
+  constructor(
+    @Inject(Injector) injector: Injector,
+    private fb: FormBuilder,
+    private customValidators: CustomValidators,
+    private datepipe: DatePipe) {
+      super(injector)
   }
   
   ngOnInit(): void {
@@ -37,10 +42,12 @@ export class FuelMainDeleteComponent extends BaseComponent {
   
   createForm(){
     this.abastecerFormGroup = this.fb.group({
-      hodometro : [this.vehicle.hodometro, [Validators.required,Validators.pattern(this.numberValidationPattern()),Validators.min(this.vehicle.hodometro)]],
+      hodometro : this.fb.control(this.vehicle.hodometro, [Validators.required,Validators.pattern(this.numberValidationPattern()),Validators.min(this.vehicle.hodometro)]),
       volume : [null, [Validators.required,Validators.pattern(this.numberValidationPattern()), Validators.min(1)]]
     },
-    {validators: this.mediaRazoavel})
+    {
+      validators: [this.customValidators.mediaRazoavel(this.vehicle.hodometro)]
+    })
 
     this.manutencaoFormGroup = this.fb.group({
       hodometro : [this.vehicle.hodometro, [Validators.required,Validators.pattern(this.numberValidationPattern()),Validators.min(this.vehicle.hodometro)]],
@@ -48,23 +55,6 @@ export class FuelMainDeleteComponent extends BaseComponent {
       data : [null, [Validators.required]],
       tipo : [null, [Validators.required]]
     })
-  }
-
-  mediaRazoavel(group: AbstractControl): {[key:string]: boolean} {
-    const hodometro:number = parseFloat(group.get('hodometro').value)
-    const volume:number = parseFloat(group.get('volume').value)
-    console.log('validador',hodometro)
-    console.log('validador',volume)
-    if (!hodometro || !volume){
-      return undefined
-    }
-    const media = ((hodometro - this.vehicle.hodometro) / volume)
-    console.log('validador',media)
-    if( media < 0.5 || media > 35 ){
-      return {mediaInviavel:true}
-    }
-    return undefined 
-
   }
 
   manutencaoFrota(): void{
@@ -93,8 +83,9 @@ export class FuelMainDeleteComponent extends BaseComponent {
       }
     )
   }*/
+
   abastecerFrota(){
-    console.log(this.abastecerFormGroup)
+    console.log('enviar')
   }
 
   excluirFrota(): void {

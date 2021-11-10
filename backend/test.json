@@ -4,18 +4,21 @@
       "frota": "789",
       "placa": "jkk8749",
       "manutencao": "",
+      "tipo": "Caminhao",
       "id": 2,
       "hodometro": 12500
     },
     {
       "frota": "789",
       "placa": "jkl4444",
+      "tipo": "Caminhao",
       "id": 1,
       "hodometro": 5500
     },
     {
       "frota": "123",
       "placa": "lkj9087",
+      "tipo": "Caminhao",
       "id": 3,
       "hodometro": 2000
     },
@@ -24,6 +27,7 @@
       "placa": "wer7897",
       "hodometro": 155000,
       "manutencao": "0",
+      "tipo": "Caminhao",
       "id": 4
     },
     {

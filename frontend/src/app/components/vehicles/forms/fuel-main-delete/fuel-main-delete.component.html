@@ -8,6 +8,9 @@ class="card"
         Placa: <span class="placa">{{vehicle.placa | uppercase}}</span>
     </mat-card-title>
     <mat-card-subtitle>
+        <mat-chip-list>
+            <mat-chip selected color="primary">{{this.vehicle.tipo}}</mat-chip>
+        </mat-chip-list>
         Hodômetro {{vehicle.hodometro ? vehicle.hodometro : 0}} Km
     </mat-card-subtitle>
     <mat-card-content class="actions">
@@ -33,24 +36,37 @@ class="card"
                             <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('required')">
                                 Campo <strong>obrigatório.</strong>
                             </mat-error>
-                            <mat-error *ngIf="abastecerFormGroup.hasError('mediaInviavel')">
-                                A média parece inviável
-                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field>
                             <mat-label>Combustível</mat-label>
                             <input matInput type="number" formControlName="volume">
                             <mat-hint align="start"><strong>Volume de combustível</strong></mat-hint>
-                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('min')">
+                            <mat-error *ngIf="abastecerFormGroup.controls.volume.hasError('min')">
                                 Precisa ser <strong>maior</strong> que a atual.
                             </mat-error>
-                            <mat-error *ngIf="abastecerFormGroup.controls.hodometro.hasError('required')">
+                            <mat-error *ngIf="abastecerFormGroup.controls.volume.hasError('required')">
                                 Campo <strong>obrigatório</strong>.
                             </mat-error>
                         </mat-form-field>
 
                     </mat-card-content>
+
+                    <mat-error *ngIf="abastecerFormGroup.hasError('mediaInviavel')">
+                        A média parece inviável.
+                    </mat-error>
+
+                    <mat-chip-list *ngIf="(abastecerFormGroup.controls.hodometro.value - this.vehicle.hodometro > 0) && abastecerFormGroup.valid">
+                        <mat-chip
+                        color="accent"
+                        selected>Rodou {{ (abastecerFormGroup.controls.hodometro.value - this.vehicle.hodometro) | decimal }} Km</mat-chip>
+
+                        <mat-chip
+                        *ngIf="abastecerFormGroup.valid"
+                        color="accent"
+                        selected>{{ ((abastecerFormGroup.controls.hodometro.value - this.vehicle.hodometro)
+                            / abastecerFormGroup.controls.volume.value) | decimal }} Km/L</mat-chip>
+                    </mat-chip-list>
 
                     <mat-action-row *ngIf="abastecerFormGroup.valid" class="botoesConfirmacao">
                         <button mat-raised-button type="submit">Confirmar</button>

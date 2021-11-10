@@ -20,13 +20,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatRadioModule } from '@angular/material/radio';
 import { DatePipe } from '@angular/common'
+import { MatChipsModule } from '@angular/material/chips';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent, CrudComponent } from './views/index';
 import { CreateComponent, ListComponent, MaintenanceComponent, FuelComponent, FuelMainDeleteComponent } from '@components/index';
-import { RadioComponent } from '@shared/index';
+import { RadioComponent, DecimalPipe, CustomValidators } from '@shared/index';
 
 @NgModule({
   declarations: [
@@ -41,11 +42,13 @@ import { RadioComponent } from '@shared/index';
     MaintenanceComponent,
     FuelComponent,
     FuelMainDeleteComponent,
-    RadioComponent
+    RadioComponent,
+    DecimalPipe,
   ],
   imports: [
     BrowserModule,
     MatRadioModule,
+    MatChipsModule,
     MatNativeDateModule,
     MatDatepickerModule,
     ScrollingModule,
@@ -64,7 +67,11 @@ import { RadioComponent } from '@shared/index';
     MatFormFieldModule,
     MatListModule
   ],
-  providers: [DatePipe],
+  providers: [
+    CustomValidators,
+    DatePipe,
+    DecimalPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
