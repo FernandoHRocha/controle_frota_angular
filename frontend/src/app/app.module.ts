@@ -30,6 +30,7 @@ import { ListComponent, MaintenanceComponent, FuelComponent, FuelMainDeleteCompo
 import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
 import { VehicleSnackbarComponent } from './shared/vehicle-snackbar/vehicle-snackbar.component';
 import { VehicleSnackbarService } from '@shared/services/vehicleSnackbar.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { VehicleSnackbarService } from '@shared/services/vehicleSnackbar.service
     FuelMainDeleteComponent,
     DecimalPipe,
     VehicleSnackbarComponent,
+    NotFoundComponent,
   ],
   imports: [
     RadioModule,

@@ -6,7 +6,7 @@
       "manutencao": "",
       "tipo": "Caminhao",
       "id": 2,
-      "hodometro": 15240
+      "hodometro": 15500
     },
     {
       "frota": "789",
@@ -429,6 +429,12 @@
       "volume": 50,
       "idVehicle": 11,
       "id": 57
+    },
+    {
+      "hodometro": 15500,
+      "volume": 200,
+      "idVehicle": 2,
+      "id": 58
     }
   ]
 }

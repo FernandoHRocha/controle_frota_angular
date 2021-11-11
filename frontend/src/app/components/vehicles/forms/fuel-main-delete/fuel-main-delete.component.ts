@@ -41,13 +41,8 @@ export class FuelMainDeleteComponent extends BaseComponent {
     this.createForm()
   }
 
-  button(){
-    
-    this.vehicleSnackbarService.notify('Abastecido')
-
-  }
-  
   createForm(){
+
     this.abastecerFormGroup = this.fb.group({})
     this.manutencaoFormGroup = this.fb.group({})
 
