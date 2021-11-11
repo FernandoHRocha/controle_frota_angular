@@ -6,7 +6,7 @@
       "manutencao": "",
       "tipo": "Caminhao",
       "id": 2,
-      "hodometro": 15500
+      "hodometro": 16000
     },
     {
       "frota": "789",
@@ -41,7 +41,7 @@
     {
       "frota": "444",
       "placa": "agi8403",
-      "hodometro": "500",
+      "hodometro": 1500,
       "manutencao": "0",
       "tipo": "Carro",
       "id": 6
@@ -435,6 +435,36 @@
       "volume": 200,
       "idVehicle": 2,
       "id": 58
+    },
+    {
+      "hodometro": 16000,
+      "volume": 400,
+      "idVehicle": 2,
+      "id": 59
+    },
+    {
+      "hodometro": 750,
+      "volume": 42,
+      "idVehicle": 6,
+      "id": 60
+    },
+    {
+      "hodometro": 800,
+      "volume": 9,
+      "idVehicle": 6,
+      "id": 61
+    },
+    {
+      "hodometro": 1200,
+      "volume": 42,
+      "idVehicle": 6,
+      "id": 62
+    },
+    {
+      "hodometro": 1500,
+      "volume": 32,
+      "idVehicle": 6,
+      "id": 63
     }
   ]
 }

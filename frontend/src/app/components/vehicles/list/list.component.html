@@ -1,21 +1,75 @@
 <div class="list-component">
     <div class="categorias" *ngIf="vehicles.length !== 0">
         <mat-card class='listagem'>
-            <mat-card-title>Caminhões</mat-card-title>
+            <mat-card-title>
+                Caminhões
+                <i
+                class="material-icons"
+                (click)="searchBarStateCaminhao = searchBarStateCaminhao === 'visible' ? 'hidden' : 'visible'">
+                    search
+                </i>
+            </mat-card-title>
+            <mat-card-subtitle [@toggleSearch]="searchBarStateCaminhao">
+                <form [formGroup]="searchForm">
+                    <mat-form-field>
+                        <input formControlName="truckControl" matInput type="text">
+                    </mat-form-field>
+                    <mat-chip-list>
+                        <mat-chip selected color="accent">Frota</mat-chip>
+                        <mat-chip selected color="accent">Placa</mat-chip>
+                    </mat-chip-list>
+                </form>
+            </mat-card-subtitle>
             <app-fuel-main-delete
             *ngFor="let vehicle of caminhoes"
             [vehicle]=vehicle></app-fuel-main-delete>
         </mat-card>
 
         <mat-card class='listagem'>
-            <mat-card-title>Carros</mat-card-title>
+            <mat-card-title>
+                Carros
+                <i
+                class="material-icons"
+                (click)="searchBarStateCarro = searchBarStateCarro === 'visible' ? 'hidden' : 'visible'">
+                    search
+                </i>
+            </mat-card-title>
+            <mat-card-subtitle [@toggleSearch]="searchBarStateCarro">
+                <form [formGroup]="searchForm">
+                    <mat-form-field>
+                        <input formControlName="carControl" matInput type="text">
+                    </mat-form-field>
+                    <mat-chip-list>
+                        <mat-chip selected color="accent">Frota</mat-chip>
+                        <mat-chip selected color="accent">Placa</mat-chip>
+                    </mat-chip-list>
+                </form>
+            </mat-card-subtitle>
             <app-fuel-main-delete
             *ngFor="let vehicle of carros"
             [vehicle]=vehicle></app-fuel-main-delete>
         </mat-card>
 
         <mat-card class='listagem'>
-            <mat-card-title>Motos</mat-card-title>
+            <mat-card-title>
+                Motos
+                <i
+                class="material-icons"
+                (click)="searchBarStateMoto = searchBarStateMoto === 'visible' ? 'hidden' : 'visible'">
+                    search
+                </i>
+            </mat-card-title>
+            <mat-card-subtitle [@toggleSearch]="searchBarStateMoto">
+                <form [formGroup]="searchForm">
+                    <mat-form-field>
+                        <input formControlName="bikeControl" matInput type="text">
+                    </mat-form-field>
+                    <mat-chip-list>
+                        <mat-chip selected color="accent">Frota</mat-chip>
+                        <mat-chip selected color="accent">Placa</mat-chip>
+                    </mat-chip-list>
+                </form>
+            </mat-card-subtitle>
             <app-fuel-main-delete
             *ngFor="let vehicle of motos"
             [vehicle]=vehicle></app-fuel-main-delete>

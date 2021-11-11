@@ -84,7 +84,7 @@ export class FuelMainDeleteComponent extends BaseComponent {
     this.getVehicleService().toFuel(fuel).subscribe(
       data => {
         this.getSnackService().popupBottom('Frota abastecido!')
-        this.vehicleSnackbarService.notify('Abastecimento Realizado')
+        this.vehicleSnackbarService.notify('Abastecido')
         this.getRouterService().navigate('frota')
       }, error => {
         this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')

@@ -28,3 +28,29 @@
     align-items: flex-start;
     flex-direction: row;
 }
+mat-card-title {
+    display: flex;
+    justify-content: space-between;
+}
+.material-icons:hover {
+    cursor: pointer;
+}
+mat-card-subtitle {
+    opacity: 0;
+    max-height: 0;
+}
+mat-form-field {
+    width: 100%;
+}
+mat-chip-list {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+}
+mat-chip {
+    margin: auto 0;
+}
+input {
+    color: black;
+    text-align: center;
+}

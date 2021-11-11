@@ -16,7 +16,7 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
-import { DatePipe } from '@angular/common'
+import { DatePipe, LocationStrategy, HashLocationStrategy } from '@angular/common'
 import { MatChipsModule } from '@angular/material/chips';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -69,6 +69,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy },
     VehicleSnackbarService,
     CustomValidators,
     DatePipe,

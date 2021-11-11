@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Fuel, Vehicle, Maintenance } from '@shared/index';
 import { Observable } from 'rxjs';
+import { FROTA_API } from 'src/app/app.api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
 
-  private BASE_URL: string = 'http://localhost:3001/'
+  private BASE_URL: string = FROTA_API+'/'
 
   constructor(private http : HttpClient) { }
 
@@ -23,6 +24,19 @@ export class VehicleService {
 
   getVehicle(id: number): Observable<Vehicle>{
     return this.http.get<Vehicle>(this.BASE_URL+'vehicle/'+id)
+  }
+
+  getFrota(tipo: string,term: string): Observable<Vehicle[]>{
+    return this.http.get<Vehicle[]>(
+      this.BASE_URL+'vehicle',
+      {
+        params:
+        {
+          tipo: tipo,
+          q: term
+        }
+      }
+    )
   }
 
   insertVehicle(vehicle : Vehicle): Observable<Vehicle> {
