@@ -77,6 +77,14 @@
       "manutencao": "0",
       "tipo": "Carro",
       "id": 10
+    },
+    {
+      "frota": "456",
+      "placa": "ala1235",
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "Moto",
+      "id": 11
     }
   ],
   "fuel": [

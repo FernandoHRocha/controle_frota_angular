@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component'
 import { CrudComponent } from './views/crud/crud.component'
-import { CreateComponent, ListComponent } from '@components/index';
+import { ListComponent } from '@components/index';
 
 const routes: Routes = [
   {
@@ -13,10 +13,15 @@ const routes: Routes = [
     path:"frota",
     component:CrudComponent,
     children: [
-      {path:'', redirectTo:'listar',pathMatch:'full'},
+      {
+        path:'',
+        redirectTo:'listar',
+        pathMatch:'full'
+      },
       {
         path:'listar',
-        component: ListComponent},
+        component: ListComponent
+      },
       {
         path:'criar',
         loadChildren: () => import('@components/create/create.module').then(m => m.CreateModule)
