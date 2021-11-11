@@ -5,7 +5,7 @@ import { HomeComponent } from './views/home/home.component'
 import { CrudComponent } from './views/crud/crud.component'
 import { ListComponent } from '@components/index';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path:"",
     component:HomeComponent

@@ -1,5 +1,4 @@
 import { Inject, Injectable, Injector, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 
 import { VehicleService,  SnackbarService, RoutingService } from "@shared/index";
 
