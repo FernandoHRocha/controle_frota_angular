@@ -10,10 +10,10 @@ import { Vehicle } from '@shared/index';
 })
 export class ListComponent extends BaseComponent {
 
-  vehicles: Vehicle[];
-  caminhoes: Vehicle[];
-  carros: Vehicle[];
-  motos: Vehicle[];
+  vehicles: Vehicle[] = [];
+  caminhoes: Vehicle[] = [];
+  carros: Vehicle[] = [];
+  motos: Vehicle[] = [];
 
   constructor(@Inject(Injector) injector: Injector) {
     super(injector);

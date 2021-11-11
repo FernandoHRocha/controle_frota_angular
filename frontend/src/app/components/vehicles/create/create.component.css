@@ -1,5 +1,5 @@
-.container {
-    margin: 5px;
+.create-component{
+    padding: 10px;
 }
 mat-card-content {
     display:flex;

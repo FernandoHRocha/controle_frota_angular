@@ -41,6 +41,9 @@ export class FuelMainDeleteComponent extends BaseComponent {
   }
   
   createForm(){
+    this.abastecerFormGroup = this.fb.group({})
+    this.manutencaoFormGroup = this.fb.group({})
+
     this.abastecerFormGroup = this.fb.group({
       hodometro : this.fb.control(this.vehicle.hodometro, [Validators.required,Validators.pattern(this.numberValidationPattern()),Validators.min(this.vehicle.hodometro)]),
       volume : [null, [Validators.required,Validators.pattern(this.numberValidationPattern()), Validators.min(1)]]
@@ -71,15 +74,15 @@ export class FuelMainDeleteComponent extends BaseComponent {
 
   abastecerFrota(): void{
     let fuel: Fuel = {
-      hodometro : this.hodometro,
-      volume : this.volume,
+      hodometro : this.abastecerFormGroup.controls.hodometro.value,
+      volume : this.abastecerFormGroup.controls.volume.value,
       idVehicle : this.vehicle.id
     };
     console.log('abastecer',fuel)
     this.getVehicleService().toFuel(fuel).subscribe(
       data => {
         this.getSnackService().popupBottom('Frota abastecido!')
-        this.ngOnInit()
+        this.getRouterService().navigate('frota')
       }, error => {
         this.getSnackService().popupBottom('Erro ao comunicar com o servidor.')
       }

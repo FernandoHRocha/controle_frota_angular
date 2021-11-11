@@ -1,13 +1,11 @@
 html {
     height: 100%;
-    padding-top:64px;
     padding-left:150px;
     font-family: 'Nanum Gothic', sans-serif;
-    /*overflow: hidden;*/
 }
 body {
     margin: 0;
-    /*margin-top: 64px;*/
+    margin-top: 64px;
     padding-bottom:30px;
     padding-top:0;
     padding-left: 0;
@@ -15,7 +13,4 @@ body {
 }
 .v-middle{
     vertical-align: middle;
-}
-.instrucao {
-    margin: 10px;
 }
