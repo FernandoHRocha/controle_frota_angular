@@ -1,11 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "rootDir": "./",
-      "outDir": "./dist",
-      "esModuleInterop": true,
-      "strict": true
+      "outDir": "dist",
+      "strict": false
     }
   }

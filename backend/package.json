@@ -2,29 +2,42 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
-    "start": "json-server --watch test.json --port 3001",
-    "build": "tsc --project ./"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "FernandoHRocha",
   "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
+    "@types/jasmine": "2.5.53",
+    "@types/jsonwebtoken": "7.2.3",
+    "https": "^1.0.0",
+    "codelyzer": "3.1.2",
+    "express": "^4.17.1",
+    "jasmine-core": "2.7.0",
+    "jasmine-spec-reporter": "4.1.1",
+    "json-server": "0.12.0",
+    "jsonwebtoken": "7.4.1",
+    "protractor": "5.1.2",
+    "ts-node": "3.3.0",
+    "tslint": "5.5.0",
+    "typescript": "2.4.2",
+    "webdriver-manager": "12.0.6"
+  },
   "dependencies": {
     "cors": "^2.8.5",
-    "debug": "^4.2.0",
-    "express": "^4.17.1",
-    "express-winston": "^4.0.5",
-    "json-server": "^0.17.0",
-    "winston": "^3.3.3"
-  },
-  "devDependencies": {
-    "@types/cors": "^2.8.7",
-    "@types/debug": "^4.1.5",
-    "@types/express": "^4.17.2",
-    "@types/node": "14.0.13",
-    "source-map-support": "^0.5.16",
-    "ts-node": "8.10.2",
-    "tslint": "^6.0.0",
-    "typescript": "^3.7.5"
+    "fs": "^0.0.1-security",
+    "helmet": "^4.6.0",
+    "admin-lte": "2.3.11",
+    "core-js": "2.4.1",
+    "font-awesome": "4.7.0",
+    "intl": "1.2.5",
+    "jquery": "3.1.1",
+    "reflect-metadata": "0.1.10",
+    "rxjs": "5.4.2",
+    "ts-helpers": "1.1.2",
+    "zone.js": "0.8.16"
   }
 }
