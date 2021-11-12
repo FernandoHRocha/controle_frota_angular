@@ -1,5 +1,5 @@
 import { Component, Injector, Inject } from '@angular/core';
-import { animate, trigger, state, style, transition } from '@angular/animations';
+import { animate, trigger, state, style, transition, query, stagger, keyframes } from '@angular/animations';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 
 import { BaseComponent } from '@shared/base.component';
@@ -11,15 +11,22 @@ import { Vehicle } from '@shared/index';
   styleUrls: ['./list.component.css'],
   animations: [
     trigger('toggleSearch',[
-      state('hidden', style({
-        'opacity': '0',
-        "max-height": '0'
-      })),
-      state('visible',style({
-        'opacity':'1',
-        'max-height':'90px'
-      })),
+      state('hidden', style({'opacity': '0',"max-height": '0'})),
+      state('visible',style({'opacity':'1','max-height':'90px'})),
       transition('* => *', animate('0.3s 0s ease-in-out'))
+    ]),
+    trigger('enterCards',[
+      transition('* => *', [
+        query(':enter',style({ opacity: 0})),
+        query('.expansion', style({ 'max-height':'48px'})),
+        query(':enter', stagger('50ms',[
+          animate('0.15s ease-in', keyframes([
+            style({opacity: 0, transform: 'translateY(-30px)', offset: 0}),
+            style({opacity: 0.5, transform: 'translateY(15px)', offset: 0.3}),
+            style({opacity: 1, transform: 'translateY(0)', offset: 1}),
+          ]))
+        ]))
+      ])
     ])
   ]
 })

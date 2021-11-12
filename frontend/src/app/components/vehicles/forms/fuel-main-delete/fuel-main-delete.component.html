@@ -16,7 +16,7 @@ class="card"
     <mat-card-content class="actions">
         <!--FORMULÁRIOS-->
         <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel class="expansion">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Registrar Abastecimento
@@ -75,7 +75,7 @@ class="card"
                 </form>
             </mat-expansion-panel>
             <!--DIVISÃO ENTRE OS FORMULÁROIS-->
-            <mat-expansion-panel>
+            <mat-expansion-panel class="expansion">
 
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -131,6 +131,7 @@ class="card"
             </mat-expansion-panel>
             <!--DIVISÃO ENTRE OS FORMULÁRIOS-->
             <mat-expansion-panel
+            class="expansion"
             (opened)="deletePanel = true"
             (closed)="deletePanel = false">
 

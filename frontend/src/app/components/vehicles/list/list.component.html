@@ -1,5 +1,5 @@
 <div class="list-component">
-    <div class="categorias" *ngIf="vehicles.length !== 0">
+    <div class="categorias" *ngIf="vehicles.length !== 0" @enterCards>
         <mat-card class='listagem'>
             <mat-card-title>
                 Caminhões
@@ -21,6 +21,7 @@
                 </form>
             </mat-card-subtitle>
             <app-fuel-main-delete
+            class="cards"
             *ngFor="let vehicle of caminhoes"
             [vehicle]=vehicle></app-fuel-main-delete>
         </mat-card>
@@ -46,6 +47,7 @@
                 </form>
             </mat-card-subtitle>
             <app-fuel-main-delete
+            class="cards"
             *ngFor="let vehicle of carros"
             [vehicle]=vehicle></app-fuel-main-delete>
         </mat-card>
@@ -71,6 +73,7 @@
                 </form>
             </mat-card-subtitle>
             <app-fuel-main-delete
+            class="cards"
             *ngFor="let vehicle of motos"
             [vehicle]=vehicle></app-fuel-main-delete>
         </mat-card>
