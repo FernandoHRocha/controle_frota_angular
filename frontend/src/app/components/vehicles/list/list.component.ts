@@ -17,15 +17,15 @@ import { Vehicle } from '@shared/index';
     ]),
     trigger('enterCards',[
       transition('* => *', [
-        query(':enter',style({ opacity: 0})),
-        query('.expansion', style({ 'max-height':'48px'})),
+        query(':enter',style({ opacity: 0}), { optional: true }),
+        query('.expansion', style({ 'max-height':'48px'}), { optional: true }),
         query(':enter', stagger('50ms',[
           animate('0.15s ease-in', keyframes([
             style({opacity: 0, transform: 'translateY(-30px)', offset: 0}),
             style({opacity: 0.5, transform: 'translateY(15px)', offset: 0.3}),
             style({opacity: 1, transform: 'translateY(0)', offset: 1}),
           ]))
-        ]))
+        ]), { optional: true })
       ])
     ])
   ]

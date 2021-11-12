@@ -59,3 +59,6 @@ baseline.json
 
 # Husky
 .husky/_
+
+dist/
+backend/test.json

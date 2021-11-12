@@ -85,6 +85,33 @@
       "manutencao": null,
       "tipo": "Moto",
       "id": 11
+    },
+    {
+      "frota": "654",
+      "placa": "qwe4578",
+      "hodometro": "150",
+      "manutencao": "75",
+      "tipo": "Moto",
+      "id": 12
+    },
+    {
+      "frota": "444",
+      "placa": "qwe9874",
+      "hodometro": "457895",
+      "manutencao": "456000",
+      "tipo": "Carro",
+      "id": 13
+    },
+    {
+      "frota": "099",
+      "placa": "asd4784",
+      "hodometro": "154",
+      "manutencao": "0",
+      "tipo": "Carro",
+      "id": 14
+    },
+    {
+      "id": 15
     }
   ],
   "fuel": [
