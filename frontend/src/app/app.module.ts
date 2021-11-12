@@ -31,6 +31,7 @@ import { RadioModule, DecimalPipe, CustomValidators } from '@shared/index';
 import { VehicleSnackbarComponent } from './shared/vehicle-snackbar/vehicle-snackbar.component';
 import { VehicleSnackbarService } from '@shared/services/vehicleSnackbar.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './security/login/login.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DecimalPipe,
     VehicleSnackbarComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     RadioModule,
