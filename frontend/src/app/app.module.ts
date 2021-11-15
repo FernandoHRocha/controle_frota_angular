@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 import { DatePipe, LocationStrategy, HashLocationStrategy } from '@angular/common'
 import { MatChipsModule } from '@angular/material/chips';
@@ -55,6 +56,7 @@ import { LoginComponent } from './security/login/login.component';
     MatChipsModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,

@@ -1,4 +1,4 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, Validators } from '@angular/forms';
 
 export class CustomValidators {
     public mediaRazoavel(hodometroInicial: number) {
@@ -14,6 +14,9 @@ export class CustomValidators {
             }
             return undefined 
         };
+    }
+    public emailPattern() {
+        return Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
     }
 }
 

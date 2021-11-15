@@ -5,11 +5,12 @@ import { HomeComponent } from './views/home/home.component'
 import { CrudComponent } from './views/crud/crud.component'
 import { ListComponent } from '@components/index';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './security/login/login.component';
 
 export const routes: Routes = [
   {
     path:"",
-    component:HomeComponent
+    component:LoginComponent
   },
   {
     path:"frota",
@@ -33,6 +34,10 @@ export const routes: Routes = [
   {
     path: 'sobre',
     loadChildren: () => import('./components/about/about.module').then(m => m.AboutModule)
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',

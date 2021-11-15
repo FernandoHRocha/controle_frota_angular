@@ -1,3 +1,38 @@
 <div class="loginComponent">
-    
+    <mat-card>
+        <mat-card-title>
+            Acesse e gerencie suas frotas.
+        </mat-card-title>
+        <mat-card-subtitle>
+            Os seus dados serão utilizados somente para acesso ao serviço.
+            <br>
+            Não enviamos qualquer tipo de e-mail para o endereço cadastrado.
+            <br>
+            Não disponibilizamos recurso de recuperação de senha.
+        </mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="loginForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="login" type="email">
+                </mat-form-field>
+                <br>    
+                <mat-form-field appearance="fill">
+                    <mat-label>Senha</mat-label>
+                    <input matInput formControlName="password" type="password">
+                    <button mat-icon-button matSuffix (click)="passHide = !passHide">
+                        <mat-icon>{{passHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="test()">
+                Cadastrar
+            </button>
+            <button mat-raised-button color="accent" *ngIf="loginForm.valid">
+                Entrar
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>

@@ -41,7 +41,7 @@
     {
       "frota": "444",
       "placa": "agi8403",
-      "hodometro": 1500,
+      "hodometro": 2000,
       "manutencao": "0",
       "tipo": "Carro",
       "id": 6
@@ -81,7 +81,7 @@
     {
       "frota": "456",
       "placa": "ala1235",
-      "hodometro": 1000,
+      "hodometro": 1250,
       "manutencao": null,
       "tipo": "Moto",
       "id": 11
@@ -109,6 +109,14 @@
       "manutencao": "0",
       "tipo": "Carro",
       "id": 14
+    },
+    {
+      "frota": "666",
+      "placa": "avp0d34",
+      "hodometro": 72000,
+      "manutencao": "70000",
+      "tipo": "Carro",
+      "id": 15
     }
   ],
   "fuel": [
@@ -489,6 +497,24 @@
       "volume": 32,
       "idVehicle": 6,
       "id": 63
+    },
+    {
+      "hodometro": 2000,
+      "volume": 89,
+      "idVehicle": 6,
+      "id": 64
+    },
+    {
+      "hodometro": 1250,
+      "volume": 12,
+      "idVehicle": 11,
+      "id": 65
+    },
+    {
+      "hodometro": 72000,
+      "volume": 200,
+      "idVehicle": 15,
+      "id": 66
     }
   ]
 }
