@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, PreloadAllModules, Router } from '@angular/router';
 
@@ -37,6 +37,7 @@ import { LoginComponent } from './security/login/login.component';
 import { LoginService } from './security/login/login.service';
 import { UserDetailComponent } from './components/template/header/user-detail/user-detail.component';
 import { AuthInterceptor } from './security/auth.interceptor';
+import { ApplicationErrorHandler } from './app.error-handler';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { AuthInterceptor } from './security/auth.interceptor';
     DatePipe,
     DecimalPipe,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: ErrorHandler, useClass: ApplicationErrorHandler}
   ],
   bootstrap: [AppComponent]
 })
