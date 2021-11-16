@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { ModuleWithProviders, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { MatDividerModule } from '@angular/material/divider';
@@ -10,11 +10,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { CreateComponent } from "@components/create/create.component";
 import { RadioModule } from "@shared/forms";
+import { LeaveCreateGuard } from "./leave-create.guard";
 
 const ROUTER: Routes = [
     {
         path:'',
-        component: CreateComponent
+        component: CreateComponent,
+        canDeactivate: [LeaveCreateGuard]
     }
 ]
 
@@ -36,8 +38,18 @@ const ROUTER: Routes = [
     ],
     exports:[
         CreateComponent
+    ],
+    providers: [
+        LeaveCreateGuard
     ]
 })
 export class CreateModule {
-
+    static forRoot(): ModuleWithProviders<CreateModule> {
+        return {
+            ngModule: CreateModule,
+            providers: [
+                { provide: LeaveCreateGuard }
+            ]
+        };
+    }
 }

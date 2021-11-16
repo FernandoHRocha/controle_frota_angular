@@ -37,13 +37,11 @@ export class VehicleSnackbarComponent implements OnInit {
           this.message = message;
           this.snackVisibility = 'left';
           document.getElementById("snackimg").style.transform = "scaleX(1)"
-          console.log(message)
         }), switchMap(message => timer(4000))
     ).subscribe(
       timer => {
         this.snackVisibility = 'right'
           document.getElementById("snackimg").style.transform = "scaleX(-1)"
-          console.log('timer')
       }
     )
   }

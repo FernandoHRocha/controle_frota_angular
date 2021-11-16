@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
+import { tap, filter } from "rxjs/operators";
 
 import { FROTA_API } from "src/app/app.api";
 import { User } from "./user.model";
@@ -11,10 +11,16 @@ import { User } from "./user.model";
 export class LoginService {
 
     user:User;
+    lastUrl: string;
 
     constructor(
         private http: HttpClient,
         private route: Router) {
+            this.route.events.pipe(
+                filter(
+                    e => e instanceof NavigationEnd)
+                ).subscribe(
+                    (e: NavigationEnd) => {this.lastUrl = e.url})
     }
 
     isLoggedIn(): boolean{
@@ -33,7 +39,12 @@ export class LoginService {
         )
     }
 
-    handleLogin(path?: string) {
+    handleLogin(path: string = this.lastUrl) {
         this.route.navigate(['/login', btoa(path)])
+    }
+
+    logout(){
+        this.user = undefined;
+        // this.route.navigate(['/login'])
     }
 }

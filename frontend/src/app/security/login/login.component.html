@@ -11,7 +11,7 @@
             Não disponibilizamos recurso de recuperação de senha.
         </mat-card-subtitle>
         <mat-card-content>
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <mat-form-field appearance="fill">
                     <mat-label>E-mail</mat-label>
                     <input matInput formControlName="email" type="email">

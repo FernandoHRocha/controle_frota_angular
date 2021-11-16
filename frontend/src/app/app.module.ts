@@ -18,6 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { DatePipe, LocationStrategy, HashLocationStrategy } from '@angular/common'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './security/login/login.component';
 import { LoginService } from './security/login/login.service';
 import { UserDetailComponent } from './components/template/header/user-detail/user-detail.component';
+import { AuthInterceptor } from './security/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,7 @@ import { UserDetailComponent } from './components/template/header/user-detail/us
     LoggedinGuard,
     DatePipe,
     DecimalPipe,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

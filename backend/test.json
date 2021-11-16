@@ -117,6 +117,62 @@
       "manutencao": "70000",
       "tipo": "Carro",
       "id": 15
+    },
+    {
+      "frota": "445",
+      "placa": "rft1245",
+      "hodometro": "0",
+      "manutencao": "0",
+      "tipo": "Carro",
+      "id": 16
+    },
+    {
+      "frota": "001",
+      "placa": "aaa1234",
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "Moto",
+      "id": 17
+    },
+    {
+      "frota": "asdfs",
+      "placa": "sdfsdf123",
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "Carro",
+      "id": 18
+    },
+    {
+      "frota": null,
+      "placa": null,
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "",
+      "id": 19
+    },
+    {
+      "frota": "sdfsdf",
+      "placa": null,
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "",
+      "id": 20
+    },
+    {
+      "frota": "sdfsdf",
+      "placa": null,
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "",
+      "id": 21
+    },
+    {
+      "frota": null,
+      "placa": null,
+      "hodometro": null,
+      "manutencao": null,
+      "tipo": "",
+      "id": 22
     }
   ],
   "fuel": [

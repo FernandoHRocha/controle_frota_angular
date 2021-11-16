@@ -42,18 +42,21 @@ export class CreateComponent extends BaseComponent implements OnInit {
     var veiculo: Vehicle = result;
     this.getVehicleService().insertVehicle(veiculo).subscribe(
       data => {
-        console.log('data',data)
         this.formulario.reset()
         this.getSnackService().popupBottom('Veículo inserido com sucesso.')
-        console.log('Create Vehicle: ',veiculo)
-        console.log('Data: ', data)
         this.getRouterService().navigate('/frota')
       },
       error => {
         this.getSnackService().popupBottom('Erro ao inserir o veículo.')
-        console.log('Create Vehicle: ',veiculo)
-        console.log('Erro: ',error)
       }
     )
+  }
+
+  createComplete():boolean{
+    if(this.formulario.valid) {
+      return false
+    } else {
+      return true
+    }
   }
 }
