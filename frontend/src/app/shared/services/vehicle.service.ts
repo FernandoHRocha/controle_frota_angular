@@ -20,28 +20,19 @@ export class VehicleService {
     return list.idVehicle = id
   }
 
-  setHeaders() {
-    let headers = new HttpHeaders()
-    if(this.loginService.isLoggedIn()) {
-      headers = headers.set('Authorization', `Bearer ${this.loginService.user.accessToken}`)
-    }
-    return headers
-  }
-
 //VEÍCULO
   getVehicles(): Observable<Vehicle[]>{
     
-    return this.http.get<Vehicle[]>(this.BASE_URL+'vehicle',{headers:this.setHeaders()})
+    return this.http.get<Vehicle[]>(this.BASE_URL+'vehicle' )
   }
 
   getVehicle(id: number): Observable<Vehicle>{
-    return this.http.get<Vehicle>(this.BASE_URL+'vehicle/'+id,{headers:this.setHeaders()})
+    return this.http.get<Vehicle>(this.BASE_URL+'vehicle/'+id)
   }
 
   getFrota(tipo: string,term: string): Observable<Vehicle[]>{
     return this.http.get<Vehicle[]>(
       this.BASE_URL+'vehicle', {
-        headers:this.setHeaders(),
         params: {
           tipo: tipo,
           q: term
@@ -56,21 +47,21 @@ export class VehicleService {
       response => {
         vehicle.id = response[response.length-1].id+1
     })
-    return this.http.post<Vehicle>(this.BASE_URL+'vehicle',vehicle,{headers:this.setHeaders()})
+    return this.http.post<Vehicle>(this.BASE_URL+'vehicle',vehicle)
   }
 
   deleteVehicle(vehicle: Vehicle): Observable<any>{
     //deletar todas referências do veículo em outras tabelas
-    return this.http.delete<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id,{headers:this.setHeaders()})
+    return this.http.delete<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id)
   }
 
   updateVehicle(vehicle: Vehicle): Observable<any>{
-    return this.http.put<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id,vehicle,{headers:this.setHeaders()})
+    return this.http.put<Vehicle>(this.BASE_URL+'vehicle/'+vehicle.id,vehicle)
   }
 
 //ABASTECIMENTO
   getFuel(id: number): Observable<Fuel>{
-    return this.http.get<Fuel>(this.BASE_URL+'fuel',{headers:this.setHeaders()})
+    return this.http.get<Fuel>(this.BASE_URL+'fuel')
   }  
 
 
@@ -83,13 +74,13 @@ export class VehicleService {
         this.updateVehicle(vehicle).subscribe()
       }
     )
-    return this.http.post<Fuel>(this.BASE_URL+'fuel',fuel,{headers:this.setHeaders()})
+    return this.http.post<Fuel>(this.BASE_URL+'fuel',fuel)
   }
 
 
   listFuel(vehicle: Vehicle): Observable<Fuel[]>{
     let fuels
-    this.http.get<Fuel[]>(this.BASE_URL+'fuel',{headers:this.setHeaders()}).subscribe(
+    this.http.get<Fuel[]>(this.BASE_URL+'fuel').subscribe(
       data => {
         return fuels.filter(this.filtroVeiculo(vehicle.id,data))
       }
@@ -107,7 +98,7 @@ export class VehicleService {
         this.updateVehicle(vehicle).subscribe()
       }
     )
-    return this.http.post<Maintenance>(this.BASE_URL+'maintenance/',maintenance,{headers:this.setHeaders()})
+    return this.http.post<Maintenance>(this.BASE_URL+'maintenance/',maintenance)
   }
 
 

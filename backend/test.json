@@ -173,6 +173,14 @@
       "manutencao": null,
       "tipo": "",
       "id": 22
+    },
+    {
+      "frota": "454",
+      "placa": "aaa1231",
+      "hodometro": "0",
+      "manutencao": "0",
+      "tipo": "Moto",
+      "id": 23
     }
   ],
   "fuel": [
