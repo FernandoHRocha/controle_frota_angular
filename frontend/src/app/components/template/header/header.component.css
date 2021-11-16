@@ -1,11 +1,17 @@
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     height:64px;
     top:0;
     left:0;
     z-index: 5;
+}
+
+.header span {
+    display: flex;
+    flex-direction: row;
 }
 
 .header a {

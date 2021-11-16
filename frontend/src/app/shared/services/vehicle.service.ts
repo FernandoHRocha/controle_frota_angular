@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Fuel, Vehicle, Maintenance } from '@shared/index';
 import { Observable } from 'rxjs';
 import { FROTA_API } from 'src/app/app.api';
+import { LoginService } from 'src/app/security/login/login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,9 @@ export class VehicleService {
 
   private BASE_URL: string = FROTA_API+'/'
 
-  constructor(private http : HttpClient) { }
+  constructor(
+    private http : HttpClient,
+    private loginService: LoginService) { }
 
   filtroVeiculo(id: number, list: any): any{
     return list.idVehicle = id
@@ -19,7 +22,11 @@ export class VehicleService {
 
 //VEÍCULO
   getVehicles(): Observable<Vehicle[]>{
-    return this.http.get<Vehicle[]>(this.BASE_URL+'vehicle')
+    let headers = new HttpHeaders()
+    if(this.loginService.isLoggedIn()) {
+      headers = headers.set('Authorization', `Bearer ${this.loginService.user.accessToken}`)
+    }
+    return this.http.get<Vehicle[]>(this.BASE_URL+'vehicle',{headers:headers})
   }
 
   getVehicle(id: number): Observable<Vehicle>{

@@ -16,13 +16,13 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-
-import { DatePipe, LocationStrategy, HashLocationStrategy } from '@angular/common'
 import { MatChipsModule } from '@angular/material/chips';
+import { DatePipe, LocationStrategy, HashLocationStrategy } from '@angular/common'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routes } from './app-routing.module';
+import { LoggedinGuard } from './security/loggedin.guard';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
@@ -33,6 +33,8 @@ import { VehicleSnackbarComponent } from './shared/vehicle-snackbar/vehicle-snac
 import { VehicleSnackbarService } from '@shared/services/vehicleSnackbar.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './security/login/login.component';
+import { LoginService } from './security/login/login.service';
+import { UserDetailComponent } from './components/template/header/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { LoginComponent } from './security/login/login.component';
     VehicleSnackbarComponent,
     NotFoundComponent,
     LoginComponent,
+    UserDetailComponent,
   ],
   imports: [
     RadioModule,
@@ -75,7 +78,9 @@ import { LoginComponent } from './security/login/login.component';
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy },
     VehicleSnackbarService,
+    LoginService,
     CustomValidators,
+    LoggedinGuard,
     DatePipe,
     DecimalPipe,
   ],

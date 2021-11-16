@@ -18,13 +18,8 @@ server.use(middlewares)
 
 server.use(jsonServer.bodyParser)
 
-server.use('/logar',(req: Request, res: Response) => {
-  res.send('Não.')
-})
-
 server.post('/login', handleAuthentication)
 server.use('/vehicle', handleAuthorization)
-
 
 server.use(router)
 
